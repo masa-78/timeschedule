@@ -15,6 +15,10 @@
 		F10F9F6224FA375900CCB667 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F10F9F6024FA375900CCB667 /* LaunchScreen.storyboard */; };
 		F10F9F6D24FA375900CCB667 /* timescheduleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10F9F6C24FA375900CCB667 /* timescheduleTests.swift */; };
 		F10F9F7824FA375900CCB667 /* timescheduleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10F9F7724FA375900CCB667 /* timescheduleUITests.swift */; };
+		F153429B250C9DC100CE3833 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1534299250C9DC100CE3833 /* TableViewCell.swift */; };
+		F153429C250C9DC100CE3833 /* TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F153429A250C9DC100CE3833 /* TableViewCell.xib */; };
+		F153429E250CC4CA00CE3833 /* NyuryokuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F153429D250CC4CA00CE3833 /* NyuryokuViewController.swift */; };
+		F15342A0250CDDEE00CE3833 /* GraphViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F153429F250CDDEE00CE3833 /* GraphViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +53,10 @@
 		F10F9F7324FA375900CCB667 /* timescheduleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = timescheduleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F10F9F7724FA375900CCB667 /* timescheduleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = timescheduleUITests.swift; sourceTree = "<group>"; };
 		F10F9F7924FA375900CCB667 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F1534299250C9DC100CE3833 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
+		F153429A250C9DC100CE3833 /* TableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableViewCell.xib; sourceTree = "<group>"; };
+		F153429D250CC4CA00CE3833 /* NyuryokuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NyuryokuViewController.swift; sourceTree = "<group>"; };
+		F153429F250CDDEE00CE3833 /* GraphViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,7 +110,11 @@
 				F10F9F5524FA375700CCB667 /* AppDelegate.swift */,
 				F10F9F5724FA375700CCB667 /* SceneDelegate.swift */,
 				F10F9F5924FA375700CCB667 /* ViewController.swift */,
+				F153429D250CC4CA00CE3833 /* NyuryokuViewController.swift */,
+				F153429F250CDDEE00CE3833 /* GraphViewController.swift */,
 				F10F9F5B24FA375700CCB667 /* Main.storyboard */,
+				F1534299250C9DC100CE3833 /* TableViewCell.swift */,
+				F153429A250C9DC100CE3833 /* TableViewCell.xib */,
 				F10F9F5E24FA375900CCB667 /* Assets.xcassets */,
 				F10F9F6024FA375900CCB667 /* LaunchScreen.storyboard */,
 				F10F9F6324FA375900CCB667 /* Info.plist */,
@@ -233,6 +245,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F10F9F6224FA375900CCB667 /* LaunchScreen.storyboard in Resources */,
+				F153429C250C9DC100CE3833 /* TableViewCell.xib in Resources */,
 				F10F9F5F24FA375900CCB667 /* Assets.xcassets in Resources */,
 				F10F9F5D24FA375700CCB667 /* Main.storyboard in Resources */,
 			);
@@ -259,7 +272,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F153429E250CC4CA00CE3833 /* NyuryokuViewController.swift in Sources */,
 				F10F9F5A24FA375700CCB667 /* ViewController.swift in Sources */,
+				F153429B250C9DC100CE3833 /* TableViewCell.swift in Sources */,
+				F15342A0250CDDEE00CE3833 /* GraphViewController.swift in Sources */,
 				F10F9F5624FA375700CCB667 /* AppDelegate.swift in Sources */,
 				F10F9F5824FA375700CCB667 /* SceneDelegate.swift in Sources */,
 			);
