@@ -9,6 +9,9 @@
 import UIKit
 
 class NyuryokuViewController: UIViewController, UITextFieldDelegate {
+    
+    
+    
 
     @IBOutlet var titleTextField: UITextField!
     @IBOutlet var contentTextView: UITextView!
