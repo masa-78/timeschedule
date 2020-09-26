@@ -24,11 +24,11 @@ class TableViewCell: UITableViewCell {
       
     var saveData: UserDefaults = UserDefaults.standard
    
-    @IBOutlet var 入力button: UIButton!
-    @IBOutlet var 時間button: UIButton!
     func  セルに表示するデータの制御(choice:IndexPath){
        self.titleTextField.text = String((choice.row)+1)
     }
+    
+
     
    
     @IBAction func saveTable() {

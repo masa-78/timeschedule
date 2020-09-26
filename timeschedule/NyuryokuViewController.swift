@@ -8,13 +8,23 @@
 
 import UIKit
 
-class NyuryokuViewController: UIViewController, UITextFieldDelegate {
+class NyuryokuViewController: UIViewController, UITextFieldDelegate , UITableViewDelegate , UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 15
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "customTableViewCell",for: indexPath) as! TableViewCell
+        cell.titleTextField?.text = "タイトル！"
+        return cell
+    }
+    
     
     
     
 
     @IBOutlet var titleTextField: UITextField!
-    @IBOutlet var contentTextView: UITextView!
+
     
     var saveData: UserDefaults = UserDefaults.standard
     
@@ -22,14 +32,14 @@ class NyuryokuViewController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
 
         titleTextField.text = saveData.object(forKey: "title") as? String
-        contentTextView.text = saveData.object(forKey: "content") as? String
+//        contentTextView.text = saveData.object(forKey: "content") as? String
         titleTextField.delegate = self
         // Do any additional setup after loading the view.
     }
     
     @IBAction func saveNyuryoku() {
         saveData.set(titleTextField.text, forKey: "title")
-        saveData.set(contentTextView.text, forKey: "content")
+//        saveData.set(contentTextView.text, forKey: "content")
         
         let alert: UIAlertController = UIAlertController(title: "保存", message: "保存が完了しました。",preferredStyle: .alert)
         
@@ -58,10 +68,7 @@ class NyuryokuViewController: UIViewController, UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
-    }
-    
-    @IBAction func plus() {
-        
-    }
+         }
+   
 
 }

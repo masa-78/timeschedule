@@ -16,18 +16,8 @@
                 <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IEn-te-nRD" userLabel="入力button">
-                        <rect key="frame" x="224" y="10" width="31" height="30"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <state key="normal" title="入力"/>
-                    </button>
-                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ngw-wP-3Jh" userLabel="時間button">
-                        <rect key="frame" x="304" y="10" width="31" height="30"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <state key="normal" title="時間"/>
-                    </button>
                     <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ott-PU-J8Y">
-                        <rect key="frame" x="52" y="10" width="97" height="34"/>
+                        <rect key="frame" x="49" y="6" width="97" height="34"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <textInputTraits key="textInputTraits"/>
@@ -37,8 +27,6 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="titleTextField" destination="ott-PU-J8Y" id="QIG-Sn-ylA"/>
-                <outlet property="入力button" destination="IEn-te-nRD" id="pQx-sC-Gfy"/>
-                <outlet property="時間button" destination="ngw-wP-3Jh" id="xAD-WO-UkR"/>
             </connections>
             <point key="canvasLocation" x="138.40579710144928" y="130.58035714285714"/>
         </tableViewCell>
