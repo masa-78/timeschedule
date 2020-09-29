@@ -28,7 +28,7 @@ class TableViewCell: UITableViewCell {
        self.titleTextField.text = String((choice.row)+1)
     }
     
-
+    @IBOutlet  var Label: UILabel?
     
    
     @IBAction func saveTable() {

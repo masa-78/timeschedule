@@ -8,6 +8,21 @@
     </dependencies>
     <scenes>
         <!--View Controller-->
+        <scene sceneID="KJV-c8-i0J">
+            <objects>
+                <viewController id="9Vj-Pg-qa8" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Ngn-wb-thX">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="ar7-id-Sxa"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oi0-oU-g9D" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1096" y="35"/>
+        </scene>
+        <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="timeschedule" customModuleProvider="target" sceneMemberID="viewController">
@@ -55,11 +70,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="716"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hm3-Iy-ZnA">
-                                <rect key="frame" x="132" y="91" width="150" height="34"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Szc-sj-RJx">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
                                 <items>
@@ -77,6 +87,11 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             </tableView>
+                            <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hm3-Iy-ZnA">
+                                <rect key="frame" x="132" y="79" width="150" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -85,7 +100,6 @@
                             <constraint firstItem="6lP-Th-y7o" firstAttribute="trailing" secondItem="hm3-Iy-ZnA" secondAttribute="trailing" constant="132" id="LFA-Wf-zSL"/>
                             <constraint firstItem="Szc-sj-RJx" firstAttribute="top" secondItem="6lP-Th-y7o" secondAttribute="top" id="XiR-pd-2nY"/>
                             <constraint firstItem="hm3-Iy-ZnA" firstAttribute="leading" secondItem="6lP-Th-y7o" secondAttribute="leading" constant="132" id="hrD-jg-zto"/>
-                            <constraint firstItem="hm3-Iy-ZnA" firstAttribute="top" secondItem="Szc-sj-RJx" secondAttribute="bottom" constant="35" id="xsG-mC-iNj"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6lP-Th-y7o"/>
                     </view>
