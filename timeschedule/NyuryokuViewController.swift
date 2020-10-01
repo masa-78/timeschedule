@@ -13,14 +13,14 @@ class NyuryokuViewController: UIViewController, UITextFieldDelegate , UITableVie
     @IBOutlet var table: UITableView!
     
     override func viewDidLoad() {
-        table.register(UINib(nibName: "カスタムセルクラス2", bundle: nil),forCellReuseIdentifier:"customTableViewCell")
+        table.register(UINib(nibName: "カスタムセルクラス2", bundle: nil),forCellReuseIdentifier:"customcell2")
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 15
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "customTableViewCell",for: indexPath) as! TableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "customcell2",for: indexPath) as! TableViewCell
         cell.titleTextField?.text = "タイトル！"
         return cell
     }
