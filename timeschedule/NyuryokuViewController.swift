@@ -9,6 +9,12 @@
 import UIKit
 
 class NyuryokuViewController: UIViewController, UITextFieldDelegate , UITableViewDelegate , UITableViewDataSource {
+   
+    @IBOutlet var table: UITableView!
+    
+    override func viewDidLoad() {
+        table.register(UINib(nibName: "カスタムセルクラス2", bundle: nil),forCellReuseIdentifier:"customTableViewCell")
+    }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 15
     }
@@ -28,7 +34,7 @@ class NyuryokuViewController: UIViewController, UITextFieldDelegate , UITableVie
     
     var saveData: UserDefaults = UserDefaults.standard
     
-    override func viewDidLoad() {
+    func viewDidRoad() {
         super.viewDidLoad()
 
         titleTextField.text = saveData.object(forKey: "title") as? String
@@ -69,6 +75,7 @@ class NyuryokuViewController: UIViewController, UITextFieldDelegate , UITableVie
         textField.resignFirstResponder()
         return true
          }
-   
-
+      
+    
+    
 }

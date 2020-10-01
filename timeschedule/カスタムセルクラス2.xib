@@ -32,12 +32,6 @@
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                     </textView>
-                    <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mpg-qP-P4f">
-                        <rect key="frame" x="145" y="9" width="97" height="34"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                        <textInputTraits key="textInputTraits"/>
-                    </textField>
                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UiL-dC-Emd">
                         <rect key="frame" x="316" y="11" width="32" height="30"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -46,6 +40,12 @@
                             <action selector="savebutton" destination="KGk-i7-Jjw" eventType="touchUpInside" id="BMT-Zp-ulX"/>
                         </connections>
                     </button>
+                    <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mpg-qP-P4f">
+                        <rect key="frame" x="145" y="11" width="97" height="34"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <textInputTraits key="textInputTraits"/>
+                    </textField>
                 </subviews>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
@@ -54,7 +54,7 @@
                 <outlet property="contentTextView" destination="spv-Pm-BEZ" id="G2m-Vy-eqd"/>
                 <outlet property="titleTextField" destination="mpg-qP-P4f" id="Kmn-xw-h0E"/>
             </connections>
-            <point key="canvasLocation" x="138.40579710144928" y="106.47321428571428"/>
+            <point key="canvasLocation" x="128" y="84"/>
         </tableViewCell>
     </objects>
 </document>

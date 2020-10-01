@@ -25,7 +25,7 @@ class ViewController: UIViewController, UITableViewDelegate , UITableViewDataSou
         
         table.dataSource = self
         
-        
+        table.delegate = self
     }
     
     override func didReceiveMemoryWarning() {
