@@ -9,25 +9,27 @@
 import UIKit
 
 class NyuryokuViewController: UIViewController, UITextFieldDelegate , UITableViewDelegate , UITableViewDataSource {
-   
+
     @IBOutlet var table: UITableView!
     
     override func viewDidLoad() {
-        table.register(UINib(nibName: "カスタムセルクラス2", bundle: nil),forCellReuseIdentifier:"customcell2")
+        super.viewDidLoad()
+        table.register(UINib(nibName: "customTableViewCell", bundle: nil),forCellReuseIdentifier:"customTableViewCell")
+        
+        table.dataSource = self
+        table.delegate = self
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 15
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "customcell2",for: indexPath) as! TableViewCell
-        cell.titleTextField?.text = "タイトル！"
+        let cell = tableView.dequeueReusableCell(withIdentifier: "customTableViewCell",for: indexPath) as! CustomTableViewCell
+        cell.titleTextField?.text = "title！"
         return cell
     }
     
-    
-    
-    
+  
 
     @IBOutlet var titleTextField: UITextField!
 
@@ -35,12 +37,13 @@ class NyuryokuViewController: UIViewController, UITextFieldDelegate , UITableVie
     var saveData: UserDefaults = UserDefaults.standard
     
     func viewDidRoad() {
-        super.viewDidLoad()
+        
 
         titleTextField.text = saveData.object(forKey: "title") as? String
 //        contentTextView.text = saveData.object(forKey: "content") as? String
-        titleTextField.delegate = self
+
         // Do any additional setup after loading the view.
+        
     }
     
     @IBAction func saveNyuryoku() {

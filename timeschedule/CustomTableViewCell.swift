@@ -1,14 +1,14 @@
 //
-//  カスタムセルクラス2.swift
+//  CustomTableViewCell.swift
 //  timeschedule
 //
-//  Created by masahiro tono on 2020/09/26.
+//  Created by masahiro tono on 2020/10/03.
 //  Copyright © 2020 com.litech. All rights reserved.
 //
 
 import UIKit
 
-class customcell2: UITableViewCell {
+class CustomTableViewCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -20,20 +20,17 @@ class customcell2: UITableViewCell {
 
         // Configure the view for the selected state
     }
-    
-    @IBOutlet var Label: UILabel!
-
-    
+    @IBOutlet var Label:UILabel!
+        
     @IBOutlet var titleTextField: UITextField!
     @IBOutlet var contentTextView: UITextView!
     
-    var saveData: UserDefaults = UserDefaults.standard
-   
-    @IBAction func savebutton() {
+    var saveData:UserDefaults = UserDefaults.standard
+    
+    @IBAction func savebutton(){
         saveData.set(titleTextField.text, forKey: "title")
         saveData.set(contentTextView.text, forKey: "content")
-    }
-    
 }
+    
 
-
+}
