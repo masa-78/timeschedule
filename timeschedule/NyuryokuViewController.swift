@@ -14,7 +14,7 @@ class NyuryokuViewController: UIViewController, UITextFieldDelegate , UITableVie
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        table.register(UINib(nibName: "customTableViewCell", bundle: nil),forCellReuseIdentifier:"customTableViewCell")
+        table.register(UINib(nibName: "CustomTableViewCell", bundle:   nil),forCellReuseIdentifier:"CustomTableViewCell")
         
         table.dataSource = self
         table.delegate = self
@@ -24,8 +24,8 @@ class NyuryokuViewController: UIViewController, UITextFieldDelegate , UITableVie
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "customTableViewCell",for: indexPath) as! CustomTableViewCell
-        cell.titleTextField?.text = "title！"
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CustomTableViewCell",for: indexPath) as! CustomTableViewCell
+        
         return cell
     }
     
@@ -40,7 +40,7 @@ class NyuryokuViewController: UIViewController, UITextFieldDelegate , UITableVie
         
 
         titleTextField.text = saveData.object(forKey: "title") as? String
-//        contentTextView.text = saveData.object(forKey: "content") as? String
+//        contentTableView.text = saveData.object(forKey: "content") as? String
 
         // Do any additional setup after loading the view.
         
@@ -50,6 +50,7 @@ class NyuryokuViewController: UIViewController, UITextFieldDelegate , UITableVie
         saveData.set(titleTextField.text, forKey: "title")
 //        saveData.set(contentTextView.text, forKey: "content")
         
+
         let alert: UIAlertController = UIAlertController(title: "保存", message: "保存が完了しました。",preferredStyle: .alert)
         
         alert.addAction(
@@ -79,6 +80,6 @@ class NyuryokuViewController: UIViewController, UITextFieldDelegate , UITableVie
         return true
          }
       
-    
+
     
 }

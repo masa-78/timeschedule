@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CustomTableViewCell: UITableViewCell {
+class CustomTableViewCell: UITableViewCell, UITextFieldDelegate{
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -27,10 +27,11 @@ class CustomTableViewCell: UITableViewCell {
     
     var saveData:UserDefaults = UserDefaults.standard
     
-    @IBAction func savebutton(){
-        saveData.set(titleTextField.text, forKey: "title")
-        saveData.set(contentTextView.text, forKey: "content")
-}
+    func viewDidLoad() {
+    
+    titleTextField.delegate = self
+    
+    }
     
 
 }
