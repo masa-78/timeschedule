@@ -21,16 +21,16 @@ class TableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     @IBOutlet var titleTextField: UITextField!
-      
+    
     var saveData: UserDefaults = UserDefaults.standard
    
     func  セルに表示するデータの制御(choice:IndexPath){
        self.titleTextField.text = String((choice.row)+1)
     }
     
-   
+
+    
     @IBAction func saveTable() {
     saveData.set(titleTextField.text ,forKey: "title")
-        
     }
 }

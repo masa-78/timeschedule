@@ -75,9 +75,7 @@ class ViewController: UIViewController, UITableViewDelegate , UITableViewDataSou
         
         if segue .identifier == "toNextViewController" {
             
-            let nextVC = segue.destination as! NyuryokuViewController
-            
-            
+            _ = segue.destination as! NyuryokuViewController
         }
     }
 }

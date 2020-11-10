@@ -46,7 +46,7 @@
                 <outlet property="contentTextView" destination="l8Y-mj-yQi" id="KQU-Bk-JBJ"/>
                 <outlet property="titleTextField" destination="Q8o-ni-Dva" id="58C-fI-YLp"/>
             </connections>
-            <point key="canvasLocation" x="142.75362318840581" y="-41.517857142857139"/>
+            <point key="canvasLocation" x="136.95652173913044" y="-159.375"/>
         </tableViewCell>
     </objects>
 </document>

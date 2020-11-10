@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CustomTableViewCell: UITableViewCell, UITextFieldDelegate{
+class CustomTableViewCell: UITableViewCell, UITextFieldDelegate, UITextViewDelegate{
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -30,8 +30,7 @@ class CustomTableViewCell: UITableViewCell, UITextFieldDelegate{
     func viewDidLoad() {
     
     titleTextField.delegate = self
+    contentTextView.delegate = self
     
     }
-    
-
 }

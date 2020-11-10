@@ -8,6 +8,15 @@
 
 import UIKit
 
+
+extension NyuryokuViewController: UITableViewDelegate {
+    
+    func tableview(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        
+        tableView.deleteRows(at: [indexPath], with: .automatic)
+    }
+}
+
 class NyuryokuViewController: UIViewController, UITextFieldDelegate , UITableViewDelegate , UITableViewDataSource {
 
     @IBOutlet var table: UITableView!
@@ -29,11 +38,10 @@ class NyuryokuViewController: UIViewController, UITextFieldDelegate , UITableVie
         return cell
     }
     
-  
+
 
     @IBOutlet var titleTextField: UITextField!
 
-    
     var saveData: UserDefaults = UserDefaults.standard
     
     func viewDidRoad() {
@@ -41,10 +49,13 @@ class NyuryokuViewController: UIViewController, UITextFieldDelegate , UITableVie
 
         titleTextField.text = saveData.object(forKey: "title") as? String
 //        contentTableView.text = saveData.object(forKey: "content") as? String
-
+        titleTextField.delegate = self
         // Do any additional setup after loading the view.
         
     }
+    
+    
+
     
     @IBAction func saveNyuryoku() {
         saveData.set(titleTextField.text, forKey: "title")
@@ -80,6 +91,5 @@ class NyuryokuViewController: UIViewController, UITextFieldDelegate , UITableVie
         return true
          }
       
-
-    
 }
+
