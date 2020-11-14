@@ -29,7 +29,7 @@
             <connections>
                 <outlet property="titleTextField" destination="ott-PU-J8Y" id="QIG-Sn-ylA"/>
             </connections>
-            <point key="canvasLocation" x="138.40579710144928" y="130.58035714285714"/>
+            <point key="canvasLocation" x="5" y="23"/>
         </tableViewCell>
     </objects>
 </document>

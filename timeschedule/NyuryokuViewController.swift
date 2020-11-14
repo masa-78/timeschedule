@@ -9,15 +9,8 @@
 import UIKit
 
 
-extension NyuryokuViewController: UITableViewDelegate {
-    
-    func tableview(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        
-        tableView.deleteRows(at: [indexPath], with: .automatic)
-    }
-}
 
-class NyuryokuViewController: UIViewController, UITextFieldDelegate , UITableViewDelegate , UITableViewDataSource {
+class NyuryokuViewController: UIViewController, UITextFieldDelegate , UITableViewDataSource , UITableViewDelegate {
 
     @IBOutlet var table: UITableView!
     
@@ -31,15 +24,28 @@ class NyuryokuViewController: UIViewController, UITextFieldDelegate , UITableVie
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 15
     }
-    
+    func tableview(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        //tableView.deleteRows(at: [indexPath as IndexPath], with: UITableView.RowAnimation.automatic)
+        tableView.deleteRows(at: [indexPath as IndexPath], with: UITableView.RowAnimation.automatic)
+    }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CustomTableViewCell",for: indexPath) as! CustomTableViewCell
         
         return cell
     }
     
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool
+    {
+        return true
+    }
 
-
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == UITableViewCell.EditingStyle.delete {
+            
+            tableView.deleteRows(at: [indexPath as IndexPath], with: UITableView.RowAnimation.automatic)
+        }
+    }
     @IBOutlet var titleTextField: UITextField!
 
     var saveData: UserDefaults = UserDefaults.standard
