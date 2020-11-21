@@ -4,7 +4,7 @@
 //
 //  Created by masahiro tono on 2020/10/03.
 //  Copyright © 2020 com.litech. All rights reserved.
-//
+
 
 import UIKit
 
@@ -14,8 +14,8 @@ class CustomTableViewCell: UITableViewCell, UITextFieldDelegate, UITextViewDeleg
         super.awakeFromNib()
         // Initialization code
         
-//        CustomTableViewCell.estimatedRowHeight = 100
-//        CustomTableViewCell.rowHeight = UITableViewAutomaticDimension
+        CustomTableViewCell.estimatedRowHeight = 100
+        CustomTableViewCell.rowHeight = UITableViewAutomaticDimension
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -26,7 +26,7 @@ class CustomTableViewCell: UITableViewCell, UITextFieldDelegate, UITextViewDeleg
     
 
     
-    @IBOutlet var Label:UILabel!
+    
         
     @IBOutlet var titleTextField: UITextField!
     @IBOutlet var contentTextView: UITextView!
@@ -38,6 +38,7 @@ class CustomTableViewCell: UITableViewCell, UITextFieldDelegate, UITextViewDeleg
     titleTextField.delegate = self
     contentTextView.delegate = self
     
+
     }
 
 }

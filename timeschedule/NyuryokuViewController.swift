@@ -97,5 +97,6 @@ class NyuryokuViewController: UIViewController, UITextFieldDelegate , UITableVie
         return true
          }
       
+
 }
 

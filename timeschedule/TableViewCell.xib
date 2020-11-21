@@ -23,13 +23,25 @@
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <textInputTraits key="textInputTraits"/>
                     </textField>
+                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Ih-6b-gLT">
+                        <rect key="frame" x="225" y="35" width="55" height="30"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <state key="normal" title="2画面へ"/>
+                    </button>
+                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6hw-9K-jlK">
+                        <rect key="frame" x="308" y="35" width="56" height="30"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <state key="normal" title="3画面へ"/>
+                    </button>
                 </subviews>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="button1" destination="2Ih-6b-gLT" id="gxP-1c-N0f"/>
+                <outlet property="button2" destination="6hw-9K-jlK" id="3eg-rg-yIu"/>
                 <outlet property="titleTextField" destination="ott-PU-J8Y" id="QIG-Sn-ylA"/>
             </connections>
-            <point key="canvasLocation" x="5" y="23"/>
+            <point key="canvasLocation" x="3.6231884057971016" y="22.767857142857142"/>
         </tableViewCell>
     </objects>
 </document>

@@ -28,11 +28,13 @@ class TableViewCell: UITableViewCell {
        self.titleTextField.text = String((choice.row)+1)
     }
     
-
+    @IBOutlet var button1: UIButton!
+    @IBOutlet var button2: UIButton!
     
     @IBAction func saveTable() {
     saveData.set(titleTextField.text ,forKey: "title")
     }
 }
+
 
 
