@@ -11,11 +11,19 @@ import UIKit
 class ViewController: UIViewController, UITableViewDelegate , UITableViewDataSource {
 
     
+//    var passedId: Int!
+//
+//    @IBOutlet var titleTextField: UITextField!
+    
+    
+    
     @IBOutlet var table: UITableView!
     
     override func viewDidLoad() {
         
         super.viewDidLoad()
+        
+//        titleTextField.text = (PassedId)
         
 //        table.tableFooterView = UIView(frame: CGRect.zero)
         
@@ -69,14 +77,20 @@ class ViewController: UIViewController, UITableViewDelegate , UITableViewDataSou
     
            // 別の画面に遷移
            performSegue(withIdentifier: "toNextViewController", sender: nil)
-       }
+        }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if segue .identifier == "toNextViewController" {
             
             _ = segue.destination as! NyuryokuViewController
+            
+            
         }
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 300
     }
 }
 

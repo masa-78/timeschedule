@@ -31,6 +31,8 @@ class NyuryokuViewController: UIViewController, UITextFieldDelegate , UITableVie
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CustomTableViewCell",for: indexPath) as! CustomTableViewCell
         
+//        cell.(nil)
+        
         return cell
     }
     
@@ -45,6 +47,9 @@ class NyuryokuViewController: UIViewController, UITextFieldDelegate , UITableVie
             
             tableView.deleteRows(at: [indexPath as IndexPath], with: UITableView.RowAnimation.automatic)
         }
+    }
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 300
     }
     @IBOutlet var titleTextField: UITextField!
 

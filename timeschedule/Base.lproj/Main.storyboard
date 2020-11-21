@@ -23,6 +23,16 @@
                                 <view key="tableFooterView" contentMode="scaleToFill" id="9jk-Ey-buX">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <subviews>
+                                        <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="2id-iq-T2q">
+                                            <rect key="frame" x="125" y="7" width="162" height="32"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <segments>
+                                                <segment title="First"/>
+                                                <segment title="Second"/>
+                                            </segments>
+                                        </segmentedControl>
+                                    </subviews>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 </view>
                                 <connections>
@@ -43,6 +53,7 @@
                     <connections>
                         <outlet property="table" destination="rWy-oJ-Fl0" id="zQt-UD-h9Z"/>
                         <segue destination="TLo-dg-Qsd" kind="presentation" identifier="toNextViewController" id="KlX-5P-mPZ"/>
+                        <segue destination="OP4-Ww-4Sn" kind="show" identifier="tothirdViewController" id="M1v-6l-imy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -60,7 +71,8 @@
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Szc-sj-RJx">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
                                 <items>
-                                    <navigationItem title="Title" id="McK-VI-97J">
+                                    <navigationItem id="McK-VI-97J">
+                                        <nil key="title"/>
                                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="1pL-Io-7dg">
                                             <connections>
                                                 <action selector="saveNyuryoku" destination="TLo-dg-Qsd" id="v0t-pw-fJQ"/>
@@ -106,11 +118,12 @@
             <objects>
                 <viewController id="OP4-Ww-4Sn" customClass="GraphViewController" customModule="timeschedule" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="bJH-BX-PzQ">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="716"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="a6x-xn-dIy"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <navigationItem key="navigationItem" id="XVk-E0-ZAT"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bqk-Vt-Yi5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

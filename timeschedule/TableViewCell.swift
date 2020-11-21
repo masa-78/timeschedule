@@ -22,6 +22,13 @@ class TableViewCell: UITableViewCell {
     }
     @IBOutlet var titleTextField: UITextField!
     
+//    var passedId: Int!
+    
+//    titleTextField.text = (PassedId)
+    
+ 
+    
+    
     var saveData: UserDefaults = UserDefaults.standard
    
     func  セルに表示するデータの制御(choice:IndexPath){
@@ -31,10 +38,16 @@ class TableViewCell: UITableViewCell {
     @IBOutlet var button1: UIButton!
     @IBOutlet var button2: UIButton!
     
+    @IBAction func action (_ sender: Any) {
+        print("action")
+    }
+    
+ 
     @IBAction func saveTable() {
     saveData.set(titleTextField.text ,forKey: "title")
     }
+
+
+
+
 }
-
-
-

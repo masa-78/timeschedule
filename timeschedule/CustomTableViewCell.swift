@@ -13,9 +13,9 @@ class CustomTableViewCell: UITableViewCell, UITextFieldDelegate, UITextViewDeleg
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        
-        CustomTableViewCell.estimatedRowHeight = 100
-        CustomTableViewCell.rowHeight = UITableViewAutomaticDimension
+       
+  
+
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -24,7 +24,7 @@ class CustomTableViewCell: UITableViewCell, UITextFieldDelegate, UITextViewDeleg
         // Configure the view for the selected state
     }
     
-
+ 
     
     
         
