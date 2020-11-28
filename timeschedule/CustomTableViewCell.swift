@@ -10,6 +10,8 @@ import UIKit
 
 class CustomTableViewCell: UITableViewCell, UITextFieldDelegate, UITextViewDelegate{
 
+   
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

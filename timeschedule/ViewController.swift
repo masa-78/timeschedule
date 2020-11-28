@@ -7,10 +7,15 @@
 //
 
 import UIKit
+import RealmSwift
 
 class ViewController: UIViewController, UITableViewDelegate , UITableViewDataSource {
 
     
+    var NyuryokuVC:NyuryokuViewController = NyuryokuViewController()
+    var GraphVC:GraphViewController = GraphViewController()
+    
+    let realm = try! Realm()
 //    var passedId: Int!
 //
 //    @IBOutlet var titleTextField: UITextField!
@@ -18,6 +23,26 @@ class ViewController: UIViewController, UITableViewDelegate , UITableViewDataSou
     
     
     @IBOutlet var table: UITableView!
+    
+    @IBOutlet var SegmentedButton: UISegmentedControl!
+    
+    func setup(){
+        self.view.addSubview(NyuryokuVC.view)
+        self.view.addSubview(GraphVC.view)
+    }
+    
+    @IBAction func SegmentedButton(_ sender: UISegmentedControl) {
+        
+        switch sender.selectedSegmentIndex {
+        case 0:
+            self.view.bringSubviewToFront(NyuryokuVC.view)
+        case 1:
+            self.view.bringSubviewToFront(GraphVC.view)
+        default:
+            print("")
+        }
+        
+    }
     
     override func viewDidLoad() {
         

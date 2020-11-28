@@ -8,8 +8,6 @@
 
 import UIKit
 
-
-
 class NyuryokuViewController: UIViewController, UITextFieldDelegate , UITableViewDataSource , UITableViewDelegate {
 
     @IBOutlet var table: UITableView!

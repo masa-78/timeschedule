@@ -3,10 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A7F92D432393ED73489A250C /* Pods_timeschedule.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A481A4FB86D497F5FF098B27 /* Pods_timeschedule.framework */; };
 		F10F9F5624FA375700CCB667 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10F9F5524FA375700CCB667 /* AppDelegate.swift */; };
 		F10F9F5824FA375700CCB667 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10F9F5724FA375700CCB667 /* SceneDelegate.swift */; };
 		F10F9F5A24FA375700CCB667 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10F9F5924FA375700CCB667 /* ViewController.swift */; };
@@ -21,6 +22,7 @@
 		F153429C250C9DC100CE3833 /* TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F153429A250C9DC100CE3833 /* TableViewCell.xib */; };
 		F153429E250CC4CA00CE3833 /* NyuryokuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F153429D250CC4CA00CE3833 /* NyuryokuViewController.swift */; };
 		F15342A0250CDDEE00CE3833 /* GraphViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F153429F250CDDEE00CE3833 /* GraphViewController.swift */; };
+		F1C4574525725980000FA051 /* time.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C4574425725980000FA051 /* time.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,6 +43,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		76D3EACDF6ACF1AC09BCB73A /* Pods-timeschedule.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-timeschedule.debug.xcconfig"; path = "Target Support Files/Pods-timeschedule/Pods-timeschedule.debug.xcconfig"; sourceTree = "<group>"; };
+		816A56DC29420E55EDEB6B6C /* Pods-timeschedule.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-timeschedule.release.xcconfig"; path = "Target Support Files/Pods-timeschedule/Pods-timeschedule.release.xcconfig"; sourceTree = "<group>"; };
+		A481A4FB86D497F5FF098B27 /* Pods_timeschedule.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_timeschedule.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F10F9F5224FA375700CCB667 /* timeschedule.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = timeschedule.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F10F9F5524FA375700CCB667 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F10F9F5724FA375700CCB667 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -61,6 +66,7 @@
 		F153429A250C9DC100CE3833 /* TableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableViewCell.xib; sourceTree = "<group>"; };
 		F153429D250CC4CA00CE3833 /* NyuryokuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NyuryokuViewController.swift; sourceTree = "<group>"; };
 		F153429F250CDDEE00CE3833 /* GraphViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphViewController.swift; sourceTree = "<group>"; };
+		F1C4574425725980000FA051 /* time.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = time.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +74,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A7F92D432393ED73489A250C /* Pods_timeschedule.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -88,6 +95,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A5A148F70A09198DBEDE4D04 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A481A4FB86D497F5FF098B27 /* Pods_timeschedule.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		EC4186542BCAEA44A61AA973 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				76D3EACDF6ACF1AC09BCB73A /* Pods-timeschedule.debug.xcconfig */,
+				816A56DC29420E55EDEB6B6C /* Pods-timeschedule.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		F10F9F4924FA375700CCB667 = {
 			isa = PBXGroup;
 			children = (
@@ -95,6 +119,8 @@
 				F10F9F6B24FA375900CCB667 /* timescheduleTests */,
 				F10F9F7624FA375900CCB667 /* timescheduleUITests */,
 				F10F9F5324FA375700CCB667 /* Products */,
+				EC4186542BCAEA44A61AA973 /* Pods */,
+				A5A148F70A09198DBEDE4D04 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -114,6 +140,7 @@
 				F10F9F5524FA375700CCB667 /* AppDelegate.swift */,
 				F10F9F5724FA375700CCB667 /* SceneDelegate.swift */,
 				F10F9F5924FA375700CCB667 /* ViewController.swift */,
+				F1C4574425725980000FA051 /* time.swift */,
 				F153429D250CC4CA00CE3833 /* NyuryokuViewController.swift */,
 				F14D74EF252898F300E1F218 /* CustomTableViewCell.swift */,
 				F14D74F0252898F300E1F218 /* CustomTableViewCell.xib */,
@@ -153,9 +180,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F10F9F7C24FA375900CCB667 /* Build configuration list for PBXNativeTarget "timeschedule" */;
 			buildPhases = (
+				76B1C69BC4DD3F9474FE045E /* [CP] Check Pods Manifest.lock */,
 				F10F9F4E24FA375700CCB667 /* Sources */,
 				F10F9F4F24FA375700CCB667 /* Frameworks */,
 				F10F9F5024FA375700CCB667 /* Resources */,
+				91E980BD6D14768722806986 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -274,6 +303,48 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		76B1C69BC4DD3F9474FE045E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-timeschedule-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		91E980BD6D14768722806986 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-timeschedule/Pods-timeschedule-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-timeschedule/Pods-timeschedule-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-timeschedule/Pods-timeschedule-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		F10F9F4E24FA375700CCB667 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -283,6 +354,7 @@
 				F10F9F5A24FA375700CCB667 /* ViewController.swift in Sources */,
 				F14D74F1252898F300E1F218 /* CustomTableViewCell.swift in Sources */,
 				F153429B250C9DC100CE3833 /* TableViewCell.swift in Sources */,
+				F1C4574525725980000FA051 /* time.swift in Sources */,
 				F15342A0250CDDEE00CE3833 /* GraphViewController.swift in Sources */,
 				F10F9F5624FA375700CCB667 /* AppDelegate.swift in Sources */,
 				F10F9F5824FA375700CCB667 /* SceneDelegate.swift in Sources */,
@@ -456,6 +528,7 @@
 		};
 		F10F9F7D24FA375900CCB667 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 76D3EACDF6ACF1AC09BCB73A /* Pods-timeschedule.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -473,6 +546,7 @@
 		};
 		F10F9F7E24FA375900CCB667 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 816A56DC29420E55EDEB6B6C /* Pods-timeschedule.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
