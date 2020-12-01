@@ -95,28 +95,71 @@ class ViewController: UIViewController, UITableViewDelegate , UITableViewDataSou
 //        performSegue(withIdentifier: "toNextViewController", sender: indexPath.row)
 //    }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    
-           // セルの選択を解除
-           table.deselectRow(at: indexPath, animated: true)
-    
-           // 別の画面に遷移
-           performSegue(withIdentifier: "toNextViewController", sender: nil)
-        }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-        if segue .identifier == "toNextViewController" {
-            
-            _ = segue.destination as! NyuryokuViewController
-            
-            
-        }
-    }
-    
+//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//
+//           // セルの選択を解除
+//           table.deselectRow(at: indexPath, animated: true)
+//
+//           // 別の画面に遷移
+//           performSegue(withIdentifier: "toNextViewController", sender: nil)
+//        }
+//
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//
+//        if segue .identifier == "toNextViewController" {
+//
+//            _ = segue.destination as! NyuryokuViewController
+//
+//
+//        }
+//    }
+//
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 300
     }
+    
+    private func add(asNyuryokuViewController viewController: UIViewController) {
+        
+//        addNyuryokuViewController(ViewController)
+        
+        view.addSubview(viewController.view)
+        
+        viewController.view.frame = view.bounds
+        viewController.view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        
+        viewController.didMove(toParent: self)
+    }
+    
+    private lazy var NyuryokuViewController: NyuryokuViewController = {
+        let storyboard = UIStoryBoard(name: "Main", bundle: Bundle.main)
+        var viewController = storyboard.instantiateViewController(WithIdentifier: "View2") as! NyuryokuViewController
+        add(asNyuryokuViewController:  viewController)
+        return viewController
+    }()
+    
+    private lazy var GraphViewController: GraphViewController = {
+        let storyboard = UIStoryBoard(name: "Main", bundle: Bundle.main)
+        var viewController = storyboard.instantiateViewController(WithIdentifier: "View3") as! GraphViewController
+        add(asGraphViewController:  GraphViewController)
+        return viewController
+    }()
+    
+    private func updateView() {
+        if UISegmentedControl.selectedSegmentedIndex == 0 {
+            remove(GraphViewController)
+            add(asNyuryokuViewController: NyuryokuViewController)
+        }else{
+            remove(NyuryokuViewController)
+            add(asNyuryokuViewController: GraphViewController
+            }
+        }
+    @IBAction func tapSegmentedControl(_ sender: UISegmentedControl) {
+        updateView()
+    }
+    
+    private func setupView() {
+        updateView()
+    }
+
+
 }
-
-

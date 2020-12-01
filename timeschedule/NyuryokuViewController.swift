@@ -100,6 +100,21 @@ class NyuryokuViewController: UIViewController, UITextFieldDelegate , UITableVie
         return true
          }
       
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        print("NyuryokuViewController Will Appear")
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        print("NyuryokuViewController Will Disappear")
+    }
+    
+//    override func viewWillDisappear(_animated: Bool ) {
+//        super.viewWillDisappear(animated)
+//        print("GraphViewController will disappear")
+//    }
+//    
 
 }
 

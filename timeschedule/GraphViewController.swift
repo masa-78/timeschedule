@@ -16,6 +16,16 @@ class GraphViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        print("GraphViewController Will Appear")
+    }
+    
+    
+    override func viewWillDisappear(_animated: Bool ) {
+        super.viewWillDisappear(animated)
+        print("GraphViewController Will Disappear")
+    }
     
     
 
