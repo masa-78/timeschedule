@@ -23,6 +23,7 @@
 		F153429E250CC4CA00CE3833 /* NyuryokuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F153429D250CC4CA00CE3833 /* NyuryokuViewController.swift */; };
 		F15342A0250CDDEE00CE3833 /* GraphViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F153429F250CDDEE00CE3833 /* GraphViewController.swift */; };
 		F1C4574525725980000FA051 /* time.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C4574425725980000FA051 /* time.swift */; };
+		F1E426FB257B9B8D004F5B9C /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E426FA257B9B8D004F5B9C /* DetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +68,7 @@
 		F153429D250CC4CA00CE3833 /* NyuryokuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NyuryokuViewController.swift; sourceTree = "<group>"; };
 		F153429F250CDDEE00CE3833 /* GraphViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphViewController.swift; sourceTree = "<group>"; };
 		F1C4574425725980000FA051 /* time.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = time.swift; sourceTree = "<group>"; };
+		F1E426FA257B9B8D004F5B9C /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,6 +142,7 @@
 				F10F9F5524FA375700CCB667 /* AppDelegate.swift */,
 				F10F9F5724FA375700CCB667 /* SceneDelegate.swift */,
 				F10F9F5924FA375700CCB667 /* ViewController.swift */,
+				F1E426FA257B9B8D004F5B9C /* DetailViewController.swift */,
 				F1C4574425725980000FA051 /* time.swift */,
 				F153429D250CC4CA00CE3833 /* NyuryokuViewController.swift */,
 				F14D74EF252898F300E1F218 /* CustomTableViewCell.swift */,
@@ -350,6 +353,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F1E426FB257B9B8D004F5B9C /* DetailViewController.swift in Sources */,
 				F153429E250CC4CA00CE3833 /* NyuryokuViewController.swift in Sources */,
 				F10F9F5A24FA375700CCB667 /* ViewController.swift in Sources */,
 				F14D74F1252898F300E1F218 /* CustomTableViewCell.swift in Sources */,
