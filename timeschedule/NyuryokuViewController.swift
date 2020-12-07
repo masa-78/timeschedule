@@ -29,6 +29,13 @@ class NyuryokuViewController: UIViewController, UITextFieldDelegate , UITableVie
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CustomTableViewCell",for: indexPath) as! CustomTableViewCell
         
+        tableView(_, tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+            
+            itemArray.remove(at: indexPath.row)
+            let indexPaths = [indexPath]
+            tableView.deleteRows(at: indexPaths, with: .automatic)
+        }
+        
 //        cell.(nil)
         
         return cell
@@ -61,6 +68,34 @@ class NyuryokuViewController: UIViewController, UITextFieldDelegate , UITableVie
         titleTextField.delegate = self
         // Do any additional setup after loading the view.
         
+    }
+    
+    var addButtonPressed = UIBarButtonItem?.self
+    
+    @IBAction func addButtonPressed(_ sender: Any) {
+       
+        var textField = UITextField()
+        let alert = UIAlertController(title: "新しいアイテム追加", message: "", preferredStyle: .alert)
+                
+        let action = UIAlertAction(title: "リストに追加", style: .default) {
+            (action) in
+
+            let item = itemArray[indexPath.row]
+
+            let newItem: Item = Item(title: textField.text!)
+            
+            self.itemArray.append(newItem)
+            self.tableView.reloadData()
+            }
+        
+        alert.addTextField {
+            (alertTextField) in
+            alertTextField.placeholder = "新しいアイテム"
+            textField = alertTextField
+        }
+        
+        alert.addAction(action)
+        present(alert, animated: true, completion: nil)
     }
     
     
@@ -114,7 +149,10 @@ class NyuryokuViewController: UIViewController, UITextFieldDelegate , UITableVie
 //        super.viewWillDisappear(animated)
 //        print("GraphViewController will disappear")
 //    }
-//    
+//
+    
+    
+
 
 }
 
