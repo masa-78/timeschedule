@@ -9,6 +9,24 @@
 import UIKit
 
 class NyuryokuViewController: UIViewController, UITextFieldDelegate , UITableViewDataSource , UITableViewDelegate {
+    
+    func ClassItem() {
+        var _ : String
+        var _: Bool = false
+//        init(title: String) {
+//        self.title = title
+//        }
+
+    }
+    init(title: String) {
+    self.title = title
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    var itemArray: [Item] = []
 
     @IBOutlet var table: UITableView!
     
@@ -29,12 +47,12 @@ class NyuryokuViewController: UIViewController, UITextFieldDelegate , UITableVie
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CustomTableViewCell",for: indexPath) as! CustomTableViewCell
         
-        tableView(_, tableView: UITableView, commit, editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-            
-            itemArray.remove(at: indexPath.row)
-            let indexPaths = [indexPath]
-            tableView.deleteRows(at: indexPaths, with: .automatic)
-        }
+//        tableView(_ tableView: UITableView, commit, editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+//
+//            itemArray.remove(at: indexPath.row)
+//            let indexPaths = [indexPath]
+//            tableView.deleteRows(at: indexPaths, with: .automatic)
+//        }
         
 //        cell.(nil)
         
@@ -48,6 +66,11 @@ class NyuryokuViewController: UIViewController, UITextFieldDelegate , UITableVie
 
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        
+        itemArray.remove(at: indexPath.row)
+        let indexPaths = [indexPath]
+        tableView.deleteRows(at: indexPaths, with: .automatic)
+        
         if editingStyle == UITableViewCell.EditingStyle.delete {
             
             tableView.deleteRows(at: [indexPath as IndexPath], with: UITableView.RowAnimation.automatic)
@@ -80,13 +103,13 @@ class NyuryokuViewController: UIViewController, UITextFieldDelegate , UITableVie
         let action = UIAlertAction(title: "リストに追加", style: .default) {
             (action) in
 
-            let item = itemArray[indexPath.row]
+         let newItem = itemArray[indexPath.row]
 
-            let newItem: Item = Item(title: textField.text!)
+       let newItem: Item = Item(title: textField.text!)
+           self.itemArray.append(newItem)
             
-            self.itemArray.append(newItem)
             self.tableView.reloadData()
-            }
+          }
         
         alert.addTextField {
             (alertTextField) in
@@ -96,6 +119,13 @@ class NyuryokuViewController: UIViewController, UITextFieldDelegate , UITableVie
         
         alert.addAction(action)
         present(alert, animated: true, completion: nil)
+        
+//        tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+//
+//            itemArray.remove(at: indexPath.row)
+//            let indexPaths = [indexPath]
+//            tableView.deleteRows(at: indexPaths, with: .automatic)
+        
     }
     
     
