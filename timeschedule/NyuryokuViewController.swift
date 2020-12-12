@@ -29,7 +29,7 @@ class NyuryokuViewController: UIViewController, UITextFieldDelegate , UITableVie
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CustomTableViewCell",for: indexPath) as! CustomTableViewCell
         
-        tableView(_, tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        tableView(_, tableView: UITableView, commit, editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
             
             itemArray.remove(at: indexPath.row)
             let indexPaths = [indexPath]

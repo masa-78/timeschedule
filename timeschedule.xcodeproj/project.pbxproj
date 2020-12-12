@@ -23,6 +23,7 @@
 		F153429E250CC4CA00CE3833 /* NyuryokuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F153429D250CC4CA00CE3833 /* NyuryokuViewController.swift */; };
 		F15342A0250CDDEE00CE3833 /* GraphViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F153429F250CDDEE00CE3833 /* GraphViewController.swift */; };
 		F1C4574525725980000FA051 /* time.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C4574425725980000FA051 /* time.swift */; };
+		F1E20763258483A400BA34A3 /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E20762258483A400BA34A3 /* PageViewController.swift */; };
 		F1E426FB257B9B8D004F5B9C /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E426FA257B9B8D004F5B9C /* DetailViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -68,6 +69,7 @@
 		F153429D250CC4CA00CE3833 /* NyuryokuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NyuryokuViewController.swift; sourceTree = "<group>"; };
 		F153429F250CDDEE00CE3833 /* GraphViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphViewController.swift; sourceTree = "<group>"; };
 		F1C4574425725980000FA051 /* time.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = time.swift; sourceTree = "<group>"; };
+		F1E20762258483A400BA34A3 /* PageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
 		F1E426FA257B9B8D004F5B9C /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -149,6 +151,7 @@
 				F14D74F0252898F300E1F218 /* CustomTableViewCell.xib */,
 				F153429F250CDDEE00CE3833 /* GraphViewController.swift */,
 				F10F9F5B24FA375700CCB667 /* Main.storyboard */,
+				F1E20762258483A400BA34A3 /* PageViewController.swift */,
 				F1534299250C9DC100CE3833 /* TableViewCell.swift */,
 				F153429A250C9DC100CE3833 /* TableViewCell.xib */,
 				F10F9F5E24FA375900CCB667 /* Assets.xcassets */,
@@ -354,6 +357,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F1E426FB257B9B8D004F5B9C /* DetailViewController.swift in Sources */,
+				F1E20763258483A400BA34A3 /* PageViewController.swift in Sources */,
 				F153429E250CC4CA00CE3833 /* NyuryokuViewController.swift in Sources */,
 				F10F9F5A24FA375700CCB667 /* ViewController.swift in Sources */,
 				F14D74F1252898F300E1F218 /* CustomTableViewCell.swift in Sources */,
