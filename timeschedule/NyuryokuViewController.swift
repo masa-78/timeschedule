@@ -8,25 +8,9 @@
 
 import UIKit
 
-class NyuryokuViewController: UIViewController, UITextFieldDelegate , UITableViewDataSource , UITableViewDelegate {
+class NyuryokuViewController: UIViewController, UITextFieldDelegate , UITableViewDataSource,  UITableViewDelegate {
     
-    func ClassItem() {
-        var _ : String
-        var _: Bool = false
-//        init(title: String) {
-//        self.title = title
-//        }
-
-    }
-    init(title: String) {
-    self.title = title
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    var itemArray: [Item] = []
+ 
 
     @IBOutlet var table: UITableView!
     
@@ -93,45 +77,51 @@ class NyuryokuViewController: UIViewController, UITextFieldDelegate , UITableVie
         
     }
     
-    var addButtonPressed = UIBarButtonItem?.self
-    
-    @IBAction func addButtonPressed(_ sender: Any) {
-       
-        var textField = UITextField()
-        let alert = UIAlertController(title: "新しいアイテム追加", message: "", preferredStyle: .alert)
-                
-        let action = UIAlertAction(title: "リストに追加", style: .default) {
-            (action) in
-
-         let newItem = itemArray[indexPath.row]
-
-       let newItem: Item = Item(title: textField.text!)
-           self.itemArray.append(newItem)
-            
-            self.tableView.reloadData()
-          }
-        
-        alert.addTextField {
-            (alertTextField) in
-            alertTextField.placeholder = "新しいアイテム"
-            textField = alertTextField
-        }
-        
-        alert.addAction(action)
-        present(alert, animated: true, completion: nil)
-        
-//        tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+//    var addButtonPressed = UIBarButtonItem?.self
 //
-//            itemArray.remove(at: indexPath.row)
-//            let indexPaths = [indexPath]
-//            tableView.deleteRows(at: indexPaths, with: .automatic)
+//    @IBAction func addButtonPressed(_ sender: Any) {
+//
+//        var textField = UITextField()
+//        let alert = UIAlertController(title: "新しいアイテム追加", message: "", preferredStyle: .alert)
+//
+//        let action = UIAlertAction(title: "リストに追加", style: .default) {
+//            (action) in
+//
+//         let newItem = itemArray[indexPath.row]
+//
+//       let newItem: Item = Item(title: textField.text!)
+//           self.itemArray.append(newItem)
+//
+//            self.tableView.reloadData()
+//          }
+//
+//        alert.addTextField {
+//            (alertTextField) in
+//            alertTextField.placeholder = "新しいアイテム"
+//            textField = alertTextField
+//        }
+//
+//        alert.addAction(action)
+//        present(alert, animated: true, completion: nil)
+//
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) -> UITableViewCell {
+
+            itemArray.remove(at: indexPath.row)
+            let indexPaths = [indexPath]
+            tableView.deleteRows(at: indexPaths, with: .automatic)
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ToDoItemCell", for: indexPath)
+           let item = itemArray[indexPath.row]
+           cell.textLabel?.text = item.title
+           cell.accessoryType = item.done ? .checkmark : .none
+           return cell
         
     }
     
     
 
     
-    @IBAction func saveNyuryoku() {
+func saveNyuryoku() {
         saveData.set(titleTextField.text, forKey: "title")
 //        saveData.set(contentTextView.text, forKey: "content")
         
@@ -181,8 +171,46 @@ class NyuryokuViewController: UIViewController, UITextFieldDelegate , UITableVie
 //    }
 //
     
+    class Item {
+        var title : String
+        var done: Bool = false
+        
+        init(title: String) {
+        self.title = title
+        }
+    }
+    
+    var itemArray: [Item] = []
+    
     
 
+    
+    var addButtonPressed = UIBarButtonItem?.self
+    
+func addButtonPressed(_ sender: Any) {
+       
+        var textField = UITextField()
+        let alert = UIAlertController(title: "新しいアイテム追加", message: "", preferredStyle: .alert)
+                
+        let action = UIAlertAction(title: "リストに追加", style: .default) {
+            (action) in
 
+//         let newItem = itemArray[indexPath.row]
+
+       let newItem: Item = Item(title: textField.text!)
+           self.itemArray.append(newItem)
+        self.tableView.reloadData()
+          }
+         
+        alert.addTextField {
+            (alertTextField) in
+            alertTextField.placeholder = "新しいアイテム"
+            textField = alertTextField
+        }
+        
+        alert.addAction(action)
+        present(alert, animated: true, completion: nil)
+        
+    }
 }
 
