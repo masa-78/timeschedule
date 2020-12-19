@@ -10,7 +10,9 @@ import Foundation
 import RealmSwift
 
 class Time: Object {
-    
+
     @objc dynamic var name = ""//時間
-   
+    @objc dynamic var title = ""
+
 }
+
