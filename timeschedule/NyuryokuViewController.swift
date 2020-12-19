@@ -187,7 +187,7 @@ func saveNyuryoku() {
     
     var addButtonPressed = UIBarButtonItem?.self
     
-func addButtonPressed(_ sender: Any) {
+       @IBAction func addButtonPressed(_ sender: Any) {
        
         var textField = UITextField()
         let alert = UIAlertController(title: "新しいアイテム追加", message: "", preferredStyle: .alert)
@@ -199,7 +199,7 @@ func addButtonPressed(_ sender: Any) {
 
        let newItem: Item = Item(title: textField.text!)
            self.itemArray.append(newItem)
-        self.tableView.reloadData()
+//        self.tableView.reloadData()
           }
          
         alert.addTextField {
@@ -212,5 +212,11 @@ func addButtonPressed(_ sender: Any) {
         present(alert, animated: true, completion: nil)
         
     }
+    
+//    @IBAction func byNavicationPush(_ sender: Any) {
+//        let nextVC = (self.storyboard?.instantiateViewController(withIdentifier: "View2")as NyuryokuViewController
+//        nextVC.text = "fromViewController"
+//
+//    }
 }
 
