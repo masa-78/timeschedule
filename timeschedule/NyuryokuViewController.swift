@@ -58,14 +58,15 @@ class NyuryokuViewController: UIViewController, UITextFieldDelegate , UITableVie
     
     
     @IBAction func addButtonPressed(_ sender: Any) {
-        let time = Time()
-        time.title = "aaa"
-        try! realm.write {
-            realm.add(time)
-        }
+  
         var textField = UITextField()
         let alert = UIAlertController(title: "新しいアイテム追加", message: "", preferredStyle: .alert)
         let action = UIAlertAction(title: "リストに追加", style: .default) {(action) in
+            let time = Time()
+            time.title = textField.text!
+            try! self.realm.write {
+                self.realm.add(time)
+            }
 //            self.tableView.reloadData()
     }
         alert.addTextField {

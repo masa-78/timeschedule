@@ -10,41 +10,34 @@ import UIKit
 import RealmSwift
 
 class ViewController: UIViewController, UITableViewDelegate , UITableViewDataSource {
-
     
-//    var NyuryokuVC:NyuryokuViewController = NyuryokuViewController
-//    var GraphVC:GraphViewController = GraphViewController
+    
+    //    var NyuryokuVC:NyuryokuViewController = NyuryokuViewController
+    //    var GraphVC:GraphViewController = GraphViewController
     
     let realm = try! Realm()
-//    var passedId: Int!
-//
-//    @IBOutlet var titleTextField: UITextField!
-    
-
-    
+    //    var passedId: Int!
+    //
+    //    @IBOutlet var titleTextField: UITextField!
     
     @IBOutlet var table: UITableView!
-    
- 
-    
-  
-
     
     override func viewDidLoad() {
         
         super.viewDidLoad()
         
-//        var _:NyuryokuViewController = NyuryokuViewController
-//        var _:GraphViewController = GraphViewController
         
-
+        //        var _:NyuryokuViewController = NyuryokuViewController
+        //        var _:GraphViewController = GraphViewController
         
-//        titleTextField.text = (PassedId)
         
-//        table.tableFooterView = UIView(frame: CGRect.zero)
+        
+        //        titleTextField.text = (PassedId)
+        
+        //        table.tableFooterView = UIView(frame: CGRect.zero)
         
         table.register (UINib(nibName: "TableViewCell", bundle: nil),forCellReuseIdentifier: "TableViewCell")
-    
+        
         // Do any additional setup after loading the view.
         
         table.dataSource = self
@@ -52,16 +45,24 @@ class ViewController: UIViewController, UITableViewDelegate , UITableViewDataSou
         table.delegate = self
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue .identifier == "toNextViewController" {
+            
+            _ = segue.destination as! NyuryokuViewController
+        }
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
-
+    
     @IBAction func nyuryoku(_ sender: Any){
-
+        
         let storyboard: UIStoryboard = self.storyboard!
-
+        
         let nextView = storyboard.instantiateViewController(withIdentifier: "View2") as! NyuryokuViewController
-
+        
         self.present(nextView,animated: true,completion: nil)
     }
     
@@ -80,36 +81,22 @@ class ViewController: UIViewController, UITableViewDelegate , UITableViewDataSou
     internal func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("/(indexPath.row)番目の行が選択されました。")
         print(indexPath.row)
-
+        
         table.deselectRow(at: indexPath, animated: true)
-
+        
         performSegue(withIdentifier: "toNextViewController", sender: indexPath.row)
-    
-    
- 
-
-           // セルの選択を解除
-           table.deselectRow(at: indexPath, animated: true)
-
-           // 別の画面に遷移
-           performSegue(withIdentifier: "toNextViewController", sender: nil)
-        }
-
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-
-        if segue .identifier == "toNextViewController" {
-
-            _ = segue.destination as! NyuryokuViewController
-
-
-        }
+        
+        // セルの選択を解除
+        table.deselectRow(at: indexPath, animated: true)
+        
+        // 別の画面に遷移
+        performSegue(withIdentifier: "toNextViewController", sender: nil)
     }
-//
+    
+    
+    //
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 300
     }
     
-    
-
-
 }

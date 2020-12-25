@@ -10,60 +10,59 @@ import Foundation
 
 class DetailViewController: UIViewController{
     
+    @IBOutlet var SegmentedButton: UISegmentedControl!
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-
-@IBOutlet var SegmentedButton: UISegmentedControl!
-
-func setup(){
-    self.view.addSubview(NyuryokuViewController.view)
-    self.view.addSubview(GraphViewController.view)
-}
-
-@IBAction func SegmentedButton(_ sender: UISegmentedControl) {
     
-    switch sender.selectedSegmentIndex {
-    case 0:
-        self.view.bringSubviewToFront(NyuryokuViewController.view)
-    case 1:
-        self.view.bringSubviewToFront(GraphViewController.view)
-    default:
-        print("")
+    func setup(){
+        self.view.addSubview(NyuryokuViewController.view)
+        self.view.addSubview(GraphViewController.view)
     }
     
-}
-
-
-//    private func add(asNyuryokuViewController viewController: UIViewController) {
-//
-////        addNyuryokuViewController(ViewController)
-//
-//        view.addSubview(viewController.view)
-//
-//        viewController.view.frame = view.bounds
-//        viewController.view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-//
-//        viewController.didMove(toParent: self)
-//    }
+    @IBAction func SegmentedButton(_ sender: UISegmentedControl) {
+        
+        switch sender.selectedSegmentIndex {
+        case 0:
+            self.view.bringSubviewToFront(NyuryokuViewController.view)
+        case 1:
+            self.view.bringSubviewToFront(GraphViewController.view)
+        default:
+            print("")
+        }
+        
+    }
     
-//    private func remove(asNyuryokuViewController viewController: UIViewController) {
-//
-//        viewController.willMove(toParent: nil)
-//
-//        viewController.view.removeFromSuperview()
-//
-//        viewController.removeFromParent()
-//    }
-//
-//    private func remove(asGraphViewController viewController: UIViewController) {
-//
-//        viewController.willMove(toParent: nil)
-//
-//        viewController.view.removeFromSuperview()
-//
-//        viewController.removeFromParent()
-//    }
+    
+    //    private func add(asNyuryokuViewController viewController: UIViewController) {
+    //
+    ////        addNyuryokuViewController(ViewController)
+    //
+    //        view.addSubview(viewController.view)
+    //
+    //        viewController.view.frame = view.bounds
+    //        viewController.view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+    //
+    //        viewController.didMove(toParent: self)
+    //    }
+    
+    //    private func remove(asNyuryokuViewController viewController: UIViewController) {
+    //
+    //        viewController.willMove(toParent: nil)
+    //
+    //        viewController.view.removeFromSuperview()
+    //
+    //        viewController.removeFromParent()
+    //    }
+    //
+    //    private func remove(asGraphViewController viewController: UIViewController) {
+    //
+    //        viewController.willMove(toParent: nil)
+    //
+    //        viewController.view.removeFromSuperview()
+    //
+    //        viewController.removeFromParent()
+    //    }
     
     private lazy var NyuryokuViewController: NyuryokuViewController = {
         let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
@@ -72,7 +71,7 @@ func setup(){
         return viewController
     }()
     
-//    var GraphViewController:((UInt) -> UInt)!
+    //    var GraphViewController:((UInt) -> UInt)!
     
     private lazy var GraphViewController: GraphViewController = {
         let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
@@ -84,24 +83,24 @@ func setup(){
     private func setupView() {
         updateView()
     }
-
+    
     
     private func updateView() {
         if SegmentedButton.selectedSegmentIndex == 0 {
             remove (asNyuryokuViewController: GraphViewController)
             add(asNyuryokuViewController: NyuryokuViewController)
-         }else{
+        }else{
             remove (asNyuryokuViewController: NyuryokuViewController)
-    add(asNyuryokuViewController: GraphViewController)
-         }
+            add(asNyuryokuViewController: GraphViewController)
         }
+    }
     @IBAction func tapSegmentedControl(_ sender: UISegmentedControl) {
         updateView()
     }
     
     private func add(asNyuryokuViewController viewController: UIViewController) {
         
-//        addNyuryokuViewController(ViewController)
+        //        addNyuryokuViewController(ViewController)
         
         view.addSubview(viewController.view)
         
