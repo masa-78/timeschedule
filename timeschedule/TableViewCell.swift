@@ -21,8 +21,8 @@ class TableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
  func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-    var CustomTableViewCell = segue.destination as! CustomTableViewCell
-        CustomTableViewCell.titleTextField = titleTextField.text
+    let CustomTableViewCell = segue.destination as! CustomTableViewCell
+    CustomTableViewCell.titleTextField.text = titleTextField.text
     }
     //    var passedId: Int!
     
