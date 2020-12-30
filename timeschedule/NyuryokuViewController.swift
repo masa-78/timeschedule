@@ -20,6 +20,8 @@ class NyuryokuViewController: UIViewController, UITextFieldDelegate , UITableVie
     
     var addButtonPressed = UIBarButtonItem?.self
     
+    var num = Int()
+    
     let realm = try! Realm()
     
     override func viewDidLoad() {

@@ -21,7 +21,7 @@ class ViewController: UIViewController, UITableViewDelegate , UITableViewDataSou
     //    @IBOutlet var titleTextField: UITextField!
     
     @IBOutlet var table: UITableView!
-    
+    var indexNum = 0
     override func viewDidLoad() {
         
         super.viewDidLoad()
@@ -45,11 +45,12 @@ class ViewController: UIViewController, UITableViewDelegate , UITableViewDataSou
         table.delegate = self
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-        if segue .identifier == "toNextViewController" {
-            
+    override func prepare(for segue: UIStoryboardSegue, sender: Any!) {
+    
+        if (segue.identifier == "toNextViewController"){
+            let nextVC: NyuryokuViewController = (segue.destination as? NyuryokuViewController)!
             _ = segue.destination as! NyuryokuViewController
+            nextVC.num = indexNum
         }
     }
     
@@ -65,7 +66,6 @@ class ViewController: UIViewController, UITableViewDelegate , UITableViewDataSou
         
         self.present(nextView,animated: true,completion: nil)
     }
-    
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 15
@@ -83,7 +83,7 @@ class ViewController: UIViewController, UITableViewDelegate , UITableViewDataSou
         print(indexPath.row)
         
         table.deselectRow(at: indexPath, animated: true)
-        
+        indexNum = indexPath.row
         performSegue(withIdentifier: "toNextViewController", sender: indexPath.row)
         
         // セルの選択を解除

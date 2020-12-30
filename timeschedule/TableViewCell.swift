@@ -20,10 +20,12 @@ class TableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
         // Configure the view for the selected state
     }
- func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-    let CustomTableViewCell = segue.destination as! CustomTableViewCell
-    CustomTableViewCell.titleTextField.text = titleTextField.text
-    }
+    
+
+//    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+//    let CustomTableViewCell = segue.destination as! CustomTableViewCell
+//    CustomTableViewCell.titleTextField.text = titleTextField.text
+//    }
     //    var passedId: Int!
     
     
@@ -34,6 +36,7 @@ class TableViewCell: UITableViewCell {
     //    @IBOutlet var button1: UIButton!
     //    @IBOutlet var button2: UIButton!
     
+ 
     @IBAction func action (_ sender: Any) {
         print("action")
     }

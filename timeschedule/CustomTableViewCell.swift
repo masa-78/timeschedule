@@ -12,6 +12,7 @@ class CustomTableViewCell: UITableViewCell, UITextFieldDelegate, UITextViewDeleg
     var saveData:UserDefaults = UserDefaults.standard
     @IBOutlet var titleTextField: UITextField!
     @IBOutlet var contentTextView: UITextView!
+ 
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -28,7 +29,7 @@ class CustomTableViewCell: UITableViewCell, UITextFieldDelegate, UITextViewDeleg
         
         titleTextField.delegate = self
         contentTextView.delegate = self
-    
+        
     }
     
 }
