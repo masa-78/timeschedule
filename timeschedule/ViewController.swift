@@ -11,6 +11,7 @@ import RealmSwift
 
 class ViewController: UIViewController, UITableViewDelegate , UITableViewDataSource {
     
+    @IBOutlet var titleTextField: UITextField!
     
     //    var NyuryokuVC:NyuryokuViewController = NyuryokuViewController
     //    var GraphVC:GraphViewController = GraphViewController
@@ -21,7 +22,6 @@ class ViewController: UIViewController, UITableViewDelegate , UITableViewDataSou
     //    @IBOutlet var titleTextField: UITextField!
     
     @IBOutlet var table: UITableView!
-    var indexNum = 0
     override func viewDidLoad() {
         
         super.viewDidLoad()
@@ -44,27 +44,32 @@ class ViewController: UIViewController, UITableViewDelegate , UITableViewDataSou
         
         table.delegate = self
     }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any!) {
-    
-        if (segue.identifier == "toNextViewController"){
-            let nextVC: NyuryokuViewController = (segue.destination as? NyuryokuViewController)!
-            _ = segue.destination as! NyuryokuViewController
-            nextVC.num = indexNum
-        }
-    }
+
+
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
     
-    @IBAction func nyuryoku(_ sender: Any){
-        
-        let storyboard: UIStoryboard = self.storyboard!
-        
-        let nextView = storyboard.instantiateViewController(withIdentifier: "View2") as! NyuryokuViewController
-        
-        self.present(nextView,animated: true,completion: nil)
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toNextViewController" {
+            let next = segue.destination as? NyuryokuViewController
+            next?.resultHandler = {text in
+                self.titleTextField.text = text
+            }
+        }
+    }
+    
+//    @IBAction func taptransitionButton(_ sender: Any) {
+//        let storyboard = self.storyboard!
+//        let next = storyboard.instantiateViewController(withIdentifier: "toNextViewController") as! NyuryokuViewController
+//       next.outputValue = self.titleTextField.text
+//        self.present(next, animated: true)
+//    }
+    
+    func taptransition(_ sender: Any) {
+        performSegue(withIdentifier: "toNextViewController", sender: nil)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -83,7 +88,6 @@ class ViewController: UIViewController, UITableViewDelegate , UITableViewDataSou
         print(indexPath.row)
         
         table.deselectRow(at: indexPath, animated: true)
-        indexNum = indexPath.row
         performSegue(withIdentifier: "toNextViewController", sender: indexPath.row)
         
         // セルの選択を解除

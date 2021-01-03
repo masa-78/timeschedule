@@ -22,6 +22,7 @@ class TableViewCell: UITableViewCell {
     }
     
 
+
 //    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
 //    let CustomTableViewCell = segue.destination as! CustomTableViewCell
 //    CustomTableViewCell.titleTextField.text = titleTextField.text
@@ -37,6 +38,13 @@ class TableViewCell: UITableViewCell {
     //    @IBOutlet var button2: UIButton!
     
  
+//    @IBAction func taptransitionButton(_ sender: Any) {
+//        let storyboard = self.storyboard!
+//        let next = storyboard.instantiateViewController(withIdentifier: "toNextViewController") as! NyuryokuViewController
+//        next.outputValue = self.titleTextField.text
+//        self.present(next, animated: true)
+//    }
+//
     @IBAction func action (_ sender: Any) {
         print("action")
     }
