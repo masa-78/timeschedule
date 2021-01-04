@@ -17,10 +17,14 @@ class GraphViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        print("GraphViewController Will Appear")
+       super.viewWillAppear(animated)
+       print("GraphViewController Will Appear")
     }
-    
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        print("GraphViewController Will Disappear")
+    }
     
 // override func viewWillDisappear(_ animated: Bool ) {
 //       super.viewWillDisappear (animated: true)

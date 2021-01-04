@@ -61,6 +61,16 @@ class ViewController: UIViewController, UITableViewDelegate , UITableViewDataSou
         }
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+       super.viewWillAppear(animated)
+       print("ViewController Will Appear")
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        print("ViewController Will Disappear")
+    }
+    
 //    @IBAction func taptransitionButton(_ sender: Any) {
 //        let storyboard = self.storyboard!
 //        let next = storyboard.instantiateViewController(withIdentifier: "toNextViewController") as! NyuryokuViewController
@@ -102,5 +112,6 @@ class ViewController: UIViewController, UITableViewDelegate , UITableViewDataSou
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 300
     }
+    
     
 }

@@ -10,11 +10,26 @@ import UIKit
 
 class PageViewController: UIPageViewController, UIPageViewControllerDataSource {
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
+        if viewController.isKind(of: GraphViewController.self) {
+            return getSecond()
+        }else if viewController.isKind(of: NyuryokuViewController.self) {
+            return getFirst()
+        } else {
         return nil
+        }
     }
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
-        return nil
+        if viewController.isKind(of: ViewController.self) {
+            return getSecond()
+        }else if viewController.isKind(of: NyuryokuViewController.self)
+        {
+            return getThird()
+        } else {
+            return nil
+        }
+   
+        
     }
     
     
@@ -25,25 +40,23 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource {
     }
     // Do any additional setup after loading the view.
     
-    
-    func getFirst() -> ViewController
-    {
-        return storyboard!.instantiateViewController(withIdentifier: "ViewController") as! ViewController
-    }
-    
-    func getSecond() -> NyuryokuViewController
-    {
-        return storyboard!.instantiateViewController(withIdentifier: "NyuryokuViewController") as! NyuryokuViewController
-    }
-    
-    func getThird() -> GraphViewController
-    {
-        return storyboard!.instantiateViewController(withIdentifier: "GraphViewController") as! GraphViewController
-    }
-    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
+    
+    func getFirst() -> ViewController {
+        return storyboard!.instantiateViewController(withIdentifier: "ViewController") as! ViewController
+    }
+    
+    func getSecond() -> NyuryokuViewController {
+        return storyboard!.instantiateViewController(withIdentifier: "NyuryokuViewController") as! NyuryokuViewController
+    }
+    
+    func getThird() -> GraphViewController {
+        return storyboard!.instantiateViewController(withIdentifier: "GraphViewController") as! GraphViewController
+    }
+    
+
     
     
     //    func pageViewController(_ pageViewController: UIPageViewController, viewControllerBeforeViewController viewController: UIViewController) -> UIViewController? {

@@ -39,6 +39,16 @@ class NyuryokuViewController: UIViewController, UITextFieldDelegate , UITableVie
         print("Nyuryoku")
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+       super.viewWillAppear(animated)
+       print("NyuryokuViewController Will Appear")
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        print("NyuryokuViewController Will Disappear")
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return timeArray.count
         
