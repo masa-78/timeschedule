@@ -93,7 +93,7 @@
                         <nil key="title"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="1pL-Io-7dg">
                             <connections>
-                                <action selector="saveNyuryoku" destination="TLo-dg-Qsd" id="v0t-pw-fJQ"/>
+                                <action selector="saveTable" destination="TLo-dg-Qsd" id="nlt-dk-vEU"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -126,7 +126,6 @@
         <!--Navigation Controller-->
         <scene sceneID="Ea9-4Z-DOP">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="YvY-Cx-kXi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Y5T-Au-Fs6" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="aNr-36-7X9">
@@ -138,6 +137,7 @@
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="ZQc-qf-uXI"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YvY-Cx-kXi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1370.4000000000001" y="75.369458128078819"/>
         </scene>
@@ -161,7 +161,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="9eU-Vi-g4C">
                         <nil key="title"/>
-                        <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="1" id="2id-iq-T2q">
+                        <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="1" id="2id-iq-T2q">
                             <rect key="frame" x="86" y="6" width="203" height="32"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <segments>

@@ -26,6 +26,10 @@ class GraphViewController: UIViewController {
         print("GraphViewController Will Disappear")
     }
     
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+    
 // override func viewWillDisappear(_ animated: Bool ) {
 //       super.viewWillDisappear (animated: true)
 //        print("GraphViewController Will Disappear")

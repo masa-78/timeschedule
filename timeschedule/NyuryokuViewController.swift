@@ -9,7 +9,7 @@
 import UIKit
 import RealmSwift
 
-class NyuryokuViewController: UIViewController, UITextFieldDelegate , UITableViewDataSource,  UITableViewDelegate {
+class NyuryokuViewController: UIViewController, UITextFieldDelegate , UITableViewDataSource,  UITableViewDelegate{
     
     @IBOutlet var table: UITableView!
     @IBOutlet var titleTextField: UITextField!
@@ -37,16 +37,23 @@ class NyuryokuViewController: UIViewController, UITextFieldDelegate , UITableVie
         table.dataSource = self
         table.delegate = self
         print("Nyuryoku")
+        
+        
+        titleTextField.delegate = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
-       super.viewWillAppear(animated)
-       print("NyuryokuViewController Will Appear")
+        super.viewWillAppear(animated)
+        print("NyuryokuViewController Will Appear")
     }
-
+    
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         print("NyuryokuViewController Will Disappear")
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -78,6 +85,14 @@ class NyuryokuViewController: UIViewController, UITextFieldDelegate , UITableVie
             handler(text)
         }
         self.dismiss(animated: true, completion: nil)
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    @IBAction func saveTable() {
+        saveData.set(titleTextField.text ,forKey: "title")
     }
     @IBAction func addButtonPressed(_ sender: Any) {
         
@@ -171,10 +186,7 @@ class NyuryokuViewController: UIViewController, UITextFieldDelegate , UITableVie
  // Pass the selected object to the new view controller.
  }
  */
-func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-    textField.resignFirstResponder()
-    return true
-}
+
 
 
 

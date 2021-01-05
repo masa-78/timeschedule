@@ -9,7 +9,7 @@
 import UIKit
 import RealmSwift
 
-class ViewController: UIViewController, UITableViewDelegate , UITableViewDataSource {
+class ViewController: UIViewController, UITableViewDelegate , UITableViewDataSource{
     
     @IBOutlet var titleTextField: UITextField!
     
@@ -43,6 +43,7 @@ class ViewController: UIViewController, UITableViewDelegate , UITableViewDataSou
         table.dataSource = self
         
         table.delegate = self
+
     }
 
 
@@ -69,6 +70,10 @@ class ViewController: UIViewController, UITableViewDelegate , UITableViewDataSou
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         print("ViewController Will Disappear")
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
     }
     
 //    @IBAction func taptransitionButton(_ sender: Any) {
@@ -112,6 +117,8 @@ class ViewController: UIViewController, UITableViewDelegate , UITableViewDataSou
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 300
     }
+    
+
     
     
 }
