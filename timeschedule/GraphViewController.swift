@@ -10,7 +10,7 @@ import UIKit
 
 class GraphViewController: UIViewController {
     
-    private let textRate:UITextView = UITextView()
+     var textRate:UITextView = UITextView()
     private let labelRate:UILabel = UILabel()
     private let buttonDraw:UIButton = UIButton()
     private let chartView:ChartView = ChartView()
@@ -37,13 +37,13 @@ class GraphViewController: UIViewController {
         changeScreen()
         // Do any additional setup after loading the view.
     }
+    
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         super.viewWillTransition(to: size, with: coordinator)
         coordinator.animate(
             alongsideTransition: nil,
             completion: {(UIViewControllerTransitionCoordinatorContext) in
-                self.changeScreen()
-            }
+                self.changeScreen()}
         )
     }
     
@@ -77,7 +77,6 @@ class GraphViewController: UIViewController {
         }
         
         chartView.frame = CGRect(x: widthValue/2-drawWidth/2, y: 150, width: drawWidth, height: drawWidth)
-        
     }
     
     @objc func touchUpButtonDraw(){

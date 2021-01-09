@@ -54,7 +54,7 @@ class ChartView: UIView {
         let startAngle:CGFloat = CGFloat(-1 * Double.pi / 2.0)
 
                 //終了位置を時計の0時起点で引数渡しされた割合の位置にする
-                let endAngle :CGFloat = CGFloat(rate / 100 * Double.pi * 2.0 - (Double.pi / 2.0))
+                let endAngle:CGFloat = CGFloat(rate / 100 * Double.pi * 2.0 - (Double.pi / 2.0))
 
                 //UIBezierPathを使用して半円を定義
                 caShapeLayerForValue.path = UIBezierPath.init(arcCenter: CGPoint.init(x: shapeFrame.size.width / 2.0, y: shapeFrame.size.height / 2.0),radius: shapeFrame.size.width / 2.0,startAngle: startAngle,endAngle: endAngle,clockwise: true).cgPath
