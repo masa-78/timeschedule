@@ -13,6 +13,8 @@ class ChartView: UIView {
     let caShapeLayerForBase:CAShapeLayer = CAShapeLayer.init()
     let caShapeLayerForValue:CAShapeLayer = CAShapeLayer.init()
     
+
+    
     func drawChart(rate:Double){
         drawBaseChart()
         drawValueChart(rate: rate)
