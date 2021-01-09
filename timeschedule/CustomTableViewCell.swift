@@ -24,9 +24,7 @@ class CustomTableViewCell: UITableViewCell, UITextFieldDelegate, UITextViewDeleg
         
         // Configure the view for the selected state
     }
-    
 
-    
     func viewDidLoad() {
         
         titleTextField.delegate = self
@@ -39,7 +37,4 @@ class CustomTableViewCell: UITableViewCell, UITextFieldDelegate, UITextViewDeleg
         titleTextField.text = textField.text
         return true
     }
-    
-    
-    
 }
