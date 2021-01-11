@@ -22,7 +22,7 @@ class GraphViewController: UIViewController {
         textRate.layer.borderColor = UIColor.lightGray.cgColor
         textRate.layer.borderWidth = 0.5
         textRate.keyboardType = .numberPad
-        textRate.text = "50"
+        textRate.text = ""
         textRate.font = UIFont.systemFont(ofSize: 16)
         self.view.addSubview(textRate)
         labelRate.text = "%"
@@ -35,6 +35,8 @@ class GraphViewController: UIViewController {
         self.view.addSubview(chartView)
         
         changeScreen()
+        
+        print(textRate)
         // Do any additional setup after loading the view.
     }
     
@@ -67,9 +69,9 @@ class GraphViewController: UIViewController {
         let widthValue = screenSize.width
         let heightValue = screenSize.height
         
-        textRate.frame = CGRect(x: widthValue/2-170, y: 50, width: 100, height: 40)
-        labelRate.frame = CGRect(x: widthValue/2-70, y: 50, width: 40, height: 40)
-        buttonDraw.frame = CGRect(x: widthValue/2-30, y: 50, width: 200, height: 40)
+        textRate.frame = CGRect(x: widthValue/2-170, y: 100, width: 100, height:40)
+        labelRate.frame = CGRect(x: widthValue/2-70, y: 100, width: 40, height: 40)
+        buttonDraw.frame = CGRect(x: widthValue/2-30, y: 100, width: 200, height: 40)
         
         var drawWidth = widthValue * 0.8
         if (widthValue > heightValue){
@@ -89,7 +91,9 @@ class GraphViewController: UIViewController {
     private func drawChart(){
         let rate = Double(textRate.text!)
         chartView.drawChart(rate: rate!)
+        
     }
+    
 }
 // override func viewWillDisappear(_ animated: Bool ) {
 //       super.viewWillDisappear (animated: true)

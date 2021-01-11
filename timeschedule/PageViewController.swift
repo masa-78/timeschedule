@@ -10,11 +10,6 @@ import UIKit
 
 class PageViewController: UIPageViewController, UIPageViewControllerDataSource {
     
-    @IBOutlet var segmentedControl: UISegmentedControl!
-    
-    @IBAction func tapsegmentedControl(_ sender: UISegmentedControl) {
-        updateView()
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,9 +35,9 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource {
     }
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
-        if viewController.isKind(of: GraphViewController) {
+        if viewController.isKind(of: GraphViewController.self){
             return getSecond()
-        }else if viewController.isKind(of: NyuryokuViewController) {
+        }else if viewController.isKind(of: NyuryokuViewController.self) {
             return getFirst()
         } else {
             return nil
@@ -50,9 +45,9 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource {
     }
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
-        if viewController.isKind(of: ViewController) {
+        if viewController.isKind(of: ViewController.self) {
             return getSecond()
-        }else if viewController.isKind(of: NyuryokuViewController)
+        }else if viewController.isKind(of: NyuryokuViewController.self)
         {
             return getThird()
         } else {
@@ -60,67 +55,7 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource {
         }
     }
     
-    private lazy var ViewController: ViewController = {
-        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
-        
-        var viewController = storyboard.instantiateViewController(withIdentifier: "View1") as!
-            ViewController
-        add(asNyuryokuViewController: viewController)
-        return viewController
-    }()
-    
-    private lazy var NyuryokuViewController: NyuryokuViewController = {
-        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
-        
-        var viewController = storyboard.instantiateViewController(withIdentifier: "View2") as! NyuryokuViewController
-        add(asNyuryokuViewController: viewController)
-        return viewController
-    }()
-    
-    //    var GraphViewController:((UInt) -> UInt)!
-    
-    private lazy var GraphViewController: GraphViewController = {
-        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
-        
-        var viewController = storyboard.instantiateViewController(withIdentifier: "View3") as! GraphViewController
-        add(asNyuryokuViewController: viewController)
-        return viewController
-    }()
-    
-    private func updateView() {
-        if segmentedControl.selectedSegmentIndex == 0 {
-            remove (asNyuryokuViewController: GraphViewController)
-            add(asNyuryokuViewController: NyuryokuViewController)
-        }else{
-            remove (asNyuryokuViewController: NyuryokuViewController)
-            add(asNyuryokuViewController: GraphViewController)
-        }
-    }
-    
-    private func setupView() {
-        updateView()
-    }
-    
-    private func add(asNyuryokuViewController viewController: UIViewController) {
-        
-        addChild(viewController)
-        
-        view.addSubview(viewController.view)
-        
-        viewController.view.frame = view.bounds
-        viewController.view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        
-        viewController.didMove(toParent: self)
-    }
-    
-    private func remove(asNyuryokuViewController viewController: UIViewController) {
-        
-        viewController.willMove(toParent: nil)
-        
-        viewController.view.removeFromSuperview()
-        
-        viewController.removeFromParent()
-    }
+
     
     //    func pageViewController(_ pageViewController: UIPageViewController, viewControllerBeforeViewController viewController: UIViewController) -> UIViewController? {
     //    if viewController is NyuryokuViewController{
