@@ -22,7 +22,7 @@ class GraphViewController: UIViewController {
         textRate.layer.borderColor = UIColor.lightGray.cgColor
 //        textRate.layer.borderWidth = 0.5
         textRate.keyboardType = .numberPad
-//        textRate.text = "50"
+        textRate.text = "0"
 //        textRate.font = UIFont.systemFont(ofSize: 16)
 //        self.view.addSubview(textRate)
 //        labelRate.text = "%"

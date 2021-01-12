@@ -9,6 +9,7 @@
 import UIKit
 import RealmSwift
 
+
 class NyuryokuViewController: UIViewController, UITextFieldDelegate , UITableViewDataSource,  UITableViewDelegate{
     
     @IBOutlet var table: UITableView!
