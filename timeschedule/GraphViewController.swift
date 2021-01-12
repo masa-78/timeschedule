@@ -10,33 +10,33 @@ import UIKit
 
 class GraphViewController: UIViewController {
     
-     var textRate:UITextView = UITextView()
-    private let labelRate:UILabel = UILabel()
-    private let buttonDraw:UIButton = UIButton()
-    private let chartView:ChartView = ChartView()
+    @IBOutlet var textRate:UITextView! = UITextView()
+    @IBOutlet var labelRate:UILabel! = UILabel()
+    @IBOutlet var buttonDraw:UIButton! = UIButton()
+    @IBOutlet var chartView: ChartView! = ChartView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         textRate.layer.cornerRadius = 10
         textRate.layer.borderColor = UIColor.lightGray.cgColor
-        textRate.layer.borderWidth = 0.5
+//        textRate.layer.borderWidth = 0.5
         textRate.keyboardType = .numberPad
-        textRate.text = ""
-        textRate.font = UIFont.systemFont(ofSize: 16)
-        self.view.addSubview(textRate)
-        labelRate.text = "%"
-        self.view.addSubview(labelRate)
-        buttonDraw.setTitle("グラフ表示", for: .normal)
+//        textRate.text = "50"
+//        textRate.font = UIFont.systemFont(ofSize: 16)
+//        self.view.addSubview(textRate)
+//        labelRate.text = "%"
+//        self.view.addSubview(labelRate)
+     
+//        buttonDraw.setTitle("グラフ表示", for: .normal)
         buttonDraw.setTitleColor(UIColor.blue, for: .normal)
-        buttonDraw.addTarget(self, action: #selector(self.touchUpButtonDraw), for: .touchUpInside)
-        self.view.addSubview(buttonDraw)
+//        buttonDraw.addTarget(self, action: #selector(self.touchUpButtonDraw), for: .touchUpInside)
+//        self.view.addSubview(buttonDraw)
         
-        self.view.addSubview(chartView)
+//        self.view.addSubview(chartView)
         
         changeScreen()
-        
-        print(textRate)
+
         // Do any additional setup after loading the view.
     }
     
@@ -69,9 +69,9 @@ class GraphViewController: UIViewController {
         let widthValue = screenSize.width
         let heightValue = screenSize.height
         
-        textRate.frame = CGRect(x: widthValue/2-170, y: 100, width: 100, height:40)
-        labelRate.frame = CGRect(x: widthValue/2-70, y: 100, width: 40, height: 40)
-        buttonDraw.frame = CGRect(x: widthValue/2-30, y: 100, width: 200, height: 40)
+//        textRate.frame = CGRect(x: widthValue/2-170, y: 100, width: 100, height:40)
+//        labelRate.frame = CGRect(x: widthValue/2-70, y: 100, width: 40, height: 40)
+//        buttonDraw.frame = CGRect(x: widthValue/2-30, y: 100, width: 200, height: 40)
         
         var drawWidth = widthValue * 0.8
         if (widthValue > heightValue){
