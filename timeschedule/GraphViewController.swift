@@ -10,11 +10,13 @@ import UIKit
 
 class GraphViewController: UIViewController {
     
-    @IBOutlet var textRate:UITextView! = UITextView()
+    @IBOutlet var textRate:UITextField!
     @IBOutlet var labelRate:UILabel! = UILabel()
     @IBOutlet var buttonDraw:UIButton! = UIButton()
     @IBOutlet var chartView: ChartView! = ChartView()
-    
+    @ IBOutlet var timeRate:UITextField!
+    @IBOutlet var labelRate2:UILabel!
+        
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -24,16 +26,16 @@ class GraphViewController: UIViewController {
         textRate.keyboardType = .numberPad
         textRate.text = "0"
 //        textRate.font = UIFont.systemFont(ofSize: 16)
-//        self.view.addSubview(textRate)
+          self.view.addSubview(textRate)
 //        labelRate.text = "%"
-//        self.view.addSubview(labelRate)
+         self.view.addSubview(labelRate)
      
 //        buttonDraw.setTitle("グラフ表示", for: .normal)
         buttonDraw.setTitleColor(UIColor.blue, for: .normal)
-//        buttonDraw.addTarget(self, action: #selector(self.touchUpButtonDraw), for: .touchUpInside)
-//        self.view.addSubview(buttonDraw)
+        buttonDraw.addTarget(self, action: #selector(self.touchUpButtonDraw), for: .touchUpInside)
+           self.view.addSubview(buttonDraw)
         
-//        self.view.addSubview(chartView)
+         self.view.addSubview(chartView)
         
         changeScreen()
 
@@ -53,11 +55,13 @@ class GraphViewController: UIViewController {
         super.viewWillAppear(animated)
         print("GraphViewController Will Appear")
         drawChart()
+        self.configureObserver()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         print("GraphViewController Will Disappear")
+        self.removeObserver()
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -93,7 +97,46 @@ class GraphViewController: UIViewController {
         chartView.drawChart(rate: rate!)
         
     }
+//    キーボードずらし
+    func configureObserver() {
+
+            let notification = NotificationCenter.default
+        notification.addObserver(self, selector: #selector(keyboardWillShow(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+        notification.addObserver(self, selector: #selector(keyboardWillHide(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+        }
+
+        // Notificationを削除
+        func removeObserver() {
+
+            let notification = NotificationCenter.default
+            notification.removeObserver(self)
+        }
     
+    @objc func keyboardWillShow(notification: Notification?) {
+
+        let rect = (notification?.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue
+        let duration: TimeInterval? = notification?.userInfo?[UIResponder.keyboardAnimationDurationUserInfoKey] as? Double
+            UIView.animate(withDuration: duration!, animations: { () in
+                let transform = CGAffineTransform(translationX: 0, y: -(rect?.size.height)!)
+                self.view.transform = transform
+
+            })
+        }
+    
+    @objc func keyboardWillHide(notification: Notification?) {
+
+        let duration: TimeInterval? = notification?.userInfo?[UIResponder.keyboardAnimationCurveUserInfoKey] as? Double
+            UIView.animate(withDuration: duration!, animations: { () in
+
+                self.view.transform = CGAffineTransform.identity
+            })
+        }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+
+            textField.resignFirstResponder()
+            return true
+        }
 }
 // override func viewWillDisappear(_ animated: Bool ) {
 //       super.viewWillDisappear (animated: true)

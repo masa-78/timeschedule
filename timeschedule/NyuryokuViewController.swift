@@ -32,15 +32,15 @@ class NyuryokuViewController: UIViewController, UITextFieldDelegate , UITableVie
         timeArray = realm.objects(Time.self)
         print(timeArray!)
         
-        titleTextField.text = outputValue
-        
+ //       titleTextField.text = outputValue
+    
         table.register(UINib(nibName: "CustomTableViewCell", bundle:   nil),forCellReuseIdentifier:"CustomTableViewCell")
         table.dataSource = self
         table.delegate = self
         print("Nyuryoku")
         
         
-        titleTextField.delegate = self
+//       titleTextField.delegate = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -92,6 +92,7 @@ class NyuryokuViewController: UIViewController, UITextFieldDelegate , UITableVie
         textField.resignFirstResponder()
         return true
     }
+
     @IBAction func saveTable() {
         saveData.set(titleTextField.text ,forKey: "title")
     }

@@ -18,6 +18,7 @@ class ChartView: UIView {
     func drawChart(rate:Double){
         drawBaseChart()
         drawValueChart(rate: rate)
+        drawValueChart(rate: rate)
         
         let caBasicAnimation = CABasicAnimation(keyPath: "strokeEnd")
                 caBasicAnimation.duration = 2.0
@@ -27,7 +28,7 @@ class ChartView: UIView {
     }
 //    奥の円
     private func drawBaseChart(){
-            let shapeFrame = CGRect.init(x: 0, y: 0, width: self.frame.width, height: self.frame.height)
+            let shapeFrame = CGRect.init(x: 0, y: 50, width: self.frame.width, height: self.frame.height)
             caShapeLayerForBase.frame = shapeFrame
         
             caShapeLayerForBase.strokeColor = UIColor(displayP3Red: 1, green: 0.8, blue: 0.4, alpha: 1.0).cgColor
@@ -44,7 +45,7 @@ class ChartView: UIView {
 //手前の円
     private func drawValueChart(rate:Double){
             //CAShareLayerを描く大きさを定義
-            let shapeFrame = CGRect.init(x: 0, y: 0, width: self.frame.width, height: self.frame.height)
+            let shapeFrame = CGRect.init(x: 0, y: 50, width: self.frame.width, height: self.frame.height)
             caShapeLayerForValue.frame = shapeFrame
 
             //CAShareLayerのデザインを定義
