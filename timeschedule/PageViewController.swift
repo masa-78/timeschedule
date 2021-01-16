@@ -13,7 +13,7 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.setViewControllers([getFirst()], direction: .forward, animated: true, completion: nil)
+        self.setViewControllers([getSecond()], direction: .forward, animated: true, completion: nil)
         self.dataSource = self
     }
     // Do any additional setup after loading the view.
@@ -22,9 +22,9 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource {
         super.didReceiveMemoryWarning()
     }
     
-    func getFirst() -> ViewController {
-        return storyboard!.instantiateViewController(withIdentifier: "View1") as! ViewController
-    }
+//    func getFirst() -> ViewController {
+//        return storyboard!.instantiateViewController(withIdentifier: "View2") as! ViewController
+//    }
     
     func getSecond() -> NyuryokuViewController {
         return storyboard!.instantiateViewController(withIdentifier: "View2") as! NyuryokuViewController
@@ -37,9 +37,12 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource {
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
         if viewController.isKind(of: GraphViewController.self){
             return getSecond()
-        }else if viewController.isKind(of: NyuryokuViewController.self) {
-            return getFirst()
-        } else {
+        }else
+//        if viewController.isKind(of: NyuryokuViewController.self) {
+//            return getFirst()
+//        }
+//        else
+        {
             return nil
         }
     }
