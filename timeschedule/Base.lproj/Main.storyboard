@@ -72,16 +72,16 @@
                                     <items>
                                         <navigationItem id="McK-VI-97J">
                                             <nil key="title"/>
-                                            <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="1" id="2id-iq-T2q">
-                                                <rect key="frame" x="86" y="12" width="203" height="32"/>
+                                            <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="1" id="2id-iq-T2q">
+                                                <rect key="frame" x="87.666666666666686" y="11.666666666666664" width="200" height="33"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <segments>
                                                     <segment title="1画面へ"/>
                                                     <segment title="2画面へ"/>
-                                                    <segment title="3画面へ"/>
                                                 </segments>
                                                 <connections>
                                                     <action selector="tapsegmentedControl:" destination="TLo-dg-Qsd" eventType="touchUpInside" id="Cyr-uN-tVv"/>
+                                                    <action selector="tapsegmentedControl:" destination="r3Q-jy-ZJ2" eventType="touchUpInside" id="TZe-Wa-iIc"/>
                                                     <action selector="tapsegmentedControl:" destination="BYZ-38-t0r" eventType="valueChanged" id="ePQ-xX-ZU0"/>
                                                 </connections>
                                             </segmentedControl>
@@ -221,6 +221,9 @@
                     <navigationItem key="navigationItem" id="9eU-Vi-g4C">
                         <nil key="title"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="segmentedControl" destination="2id-iq-T2q" id="Bfj-rq-wQQ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eF9-Gg-IdS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

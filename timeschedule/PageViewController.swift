@@ -33,7 +33,7 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource {
     func getThird() -> GraphViewController {
         return storyboard!.instantiateViewController(withIdentifier: "View3") as! GraphViewController
     }
-    
+
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
         if viewController.isKind(of: GraphViewController.self){
             return getSecond()
@@ -54,6 +54,7 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource {
             return nil
         }
     }
+    
     
 
     

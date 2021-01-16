@@ -39,7 +39,7 @@ class NyuryokuViewController: UIViewController, UITextFieldDelegate , UITableVie
         table.delegate = self
         print("Nyuryoku")
         
-        
+
 //       titleTextField.delegate = self
     }
     
@@ -101,6 +101,7 @@ class NyuryokuViewController: UIViewController, UITextFieldDelegate , UITableVie
         var textField = UITextField()
         let alert = UIAlertController(title: "新しいアイテム追加", message: "", preferredStyle: .alert)
         let action = UIAlertAction(title: "リストに追加", style: .default) {(action) in
+            
             let time = Time()
             time.title = textField.text!
             try! self.realm.write {

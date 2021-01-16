@@ -30,6 +30,8 @@ class CustomTableViewCell: UITableViewCell, UITextFieldDelegate, UITextViewDeleg
         titleTextField.delegate = self
         contentTextView.delegate = self
         
+      
+        
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -37,4 +39,6 @@ class CustomTableViewCell: UITableViewCell, UITextFieldDelegate, UITextViewDeleg
         titleTextField.text = textField.text
         return true
     }
+    
+    
 }

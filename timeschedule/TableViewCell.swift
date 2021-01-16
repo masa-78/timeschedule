@@ -10,10 +10,13 @@ import UIKit
 
 class TableViewCell: UITableViewCell {
     @IBOutlet var titleTextField: UITextField!
+    
+    
     var saveData: UserDefaults = UserDefaults.standard
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
