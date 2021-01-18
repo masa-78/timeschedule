@@ -16,6 +16,7 @@ class GraphViewController: UIViewController {
     @IBOutlet var chartView: ChartView! = ChartView()
     @ IBOutlet var timeRate:UITextField!
     @IBOutlet var labelRate2:UILabel!
+//    @IBOutlet var Createbutton: UIButton!
         
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,6 +37,8 @@ class GraphViewController: UIViewController {
            self.view.addSubview(buttonDraw)
         
          self.view.addSubview(chartView)
+        
+
         
         changeScreen()
 
@@ -88,6 +91,11 @@ class GraphViewController: UIViewController {
     @objc func touchUpButtonDraw(){
         drawChart()
     }
+    
+//    @IBAction func createButton(_sender: Any) {
+//        let TestText: UITextField = UITextField()
+//        TestText.frame = CGRect.init(x:  , y: , width: 97, height: 34)
+//    }
     
     /**
      グラフを表示

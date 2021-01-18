@@ -18,7 +18,7 @@ class ChartView: UIView {
     func drawChart(rate:Double){
         drawBaseChart()
         drawValueChart(rate: rate)
-        drawValueChart(rate: rate)
+
         
         let caBasicAnimation = CABasicAnimation(keyPath: "strokeEnd")
                 caBasicAnimation.duration = 2.0
@@ -52,7 +52,7 @@ class ChartView: UIView {
             caShapeLayerForValue.strokeColor = UIColor(displayP3Red: 1, green: 0.4, blue: 0.4, alpha: 1).cgColor
             caShapeLayerForValue.fillColor = UIColor.clear.cgColor
             caShapeLayerForValue.lineWidth = 70
-            caShapeLayerForValue.lineCap = .round
+//            caShapeLayerForValue.lineCap = .round
         
         let startAngle:CGFloat = CGFloat(-1 * Double.pi / 2.0)
 
@@ -62,7 +62,31 @@ class ChartView: UIView {
                 //UIBezierPathを使用して半円を定義
                 caShapeLayerForValue.path = UIBezierPath.init(arcCenter: CGPoint.init(x: shapeFrame.size.width / 2.0, y: shapeFrame.size.height / 2.0),radius: shapeFrame.size.width / 2.0,startAngle: startAngle,endAngle: endAngle,clockwise: true).cgPath
                 self.layer.addSublayer(caShapeLayerForValue)
-            }
+        
+        let _: [Double] = [0,1,1,1,1]
+        let _: [Double] = [1,2,3,4,5]
+
+        
+    }
+}
+//    private func drawValueChart2(rate:Double){
+//
+//        let shapeFrame = CGRect.init(x: 0, y: 50, width: self.frame.width, height: self.frame.height)
+//        caShapeLayerForValue.frame = shapeFrame
+//
+//        caShapeLayerForValue.strokeColor = UIColor(displayP3Red: 2, green: 1.4, blue: 1.4, alpha: 2).cgColor
+//        caShapeLayerForValue.fillColor = UIColor.clear.cgColor
+//        caShapeLayerForValue.lineWidth = 70
+//        caShapeLayerForValue.lineCap = .round
+//
+//        let startAngle:CGFloat = CGFloat(-1 * Double.pi / 2.0)
+//
+//        let endAngle:CGFloat = CGFloat(rate / 100 * Double.pi * 2.0 - (Double.pi / 2.0))
+//
+//                caShapeLayerForValue.path = UIBezierPath.init(arcCenter: CGPoint.init(x: shapeFrame.size.width / 2.0, y: shapeFrame.size.height / 2.0),radius: shapeFrame.size.width / 2.0,startAngle: startAngle,endAngle: endAngle,clockwise: true).cgPath
+//               self.layer.addSublayer(caShapeLayerForValue)
+//    }
+
     
     /*
     // Only override draw() if you perform custom drawing.
@@ -71,5 +95,5 @@ class ChartView: UIView {
         // Drawing code
     }
     */
+    
 
-}
