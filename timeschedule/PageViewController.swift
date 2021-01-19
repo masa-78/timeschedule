@@ -22,24 +22,24 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource {
         super.didReceiveMemoryWarning()
     }
     
-    func getFirst() -> NyuryokuViewController {
+    func getFirst() -> ViewController {
+        return storyboard!.instantiateViewController(withIdentifier: "View1") as! ViewController
+    }
+    
+    func getSecond() -> NyuryokuViewController {
         return storyboard!.instantiateViewController(withIdentifier: "View2") as! NyuryokuViewController
     }
     
-    func getSecond() -> GraphViewController {
+    func getThird() -> GraphViewController {
         return storyboard!.instantiateViewController(withIdentifier: "View3") as! GraphViewController
     }
     
-//    func getThird() -> GraphViewController {
-//        return storyboard!.instantiateViewController(withIdentifier: "View3") as! GraphViewController
-//    }
-
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
-        if viewController.isKind(of: GraphViewController.self){
-            return getSecond()
+        if viewController.isKind(of: NyuryokuViewController.self){
+            return getThird()
         }else
-        if viewController.isKind(of: NyuryokuViewController.self) {
-            return getFirst()
+        if viewController.isKind(of: GraphViewController.self) {
+            return getSecond()
         }
         else
         {
@@ -48,38 +48,39 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource {
     }
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
-        if viewController.isKind(of: NyuryokuViewController.self) {
-            return getFirst()
-        }else if viewController.isKind(of: GraphViewController.self)
-        {
+        if viewController.isKind(of: GraphViewController.self) {
             return getSecond()
-        } else {
+        }else if viewController.isKind(of: NyuryokuViewController.self)
+        {
+            return getThird()
+        }
+        else{
             return nil
         }
     }
     
     
-
     
-    //    func pageViewController(_ pageViewController: UIPageViewController, viewControllerBeforeViewController viewController: UIViewController) -> UIViewController? {
-    //    if viewController is NyuryokuViewController{
-    //        return getSecond()
-    //    }else if viewController is ViewController{
-    //        return getFirst()
-    //    }else {
-    //      return nil
-    //}
+    
+    //    func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
+    //        if viewController is NyuryokuViewController{
+    //            return getSecond()
+    //        }else if viewController is ViewController{
+    //            return getFirst()
+    //        }else {
+    //          return nil
+    //    }
     //
-    //func pageViewController(pageViewController: UIPageViewController, viewControllerAfterViewcontroller viewController: UIViewController) -> UIViewController? {
-    //    if viewController is  ViewController{
-    //        return getSecond()
-    //    }else if viewController is NyuryokuViewController{
-    //        return getThird()
-    //    }else {
-    //    return nil
-    //}
-    //}
-    //}
+    //    func pageViewController(pageViewController: UIPageViewController, viewControllerAfterViewcontroller viewController: UIViewController) -> UIViewController? {
+    //        if viewController is  ViewController{
+    //            return getSecond()
+    //        }else if viewController is NyuryokuViewController{
+    //            return getThird()
+    //        }else {
+    //        return nil
+    //    }
+    //    }
+    //    }
     /*
      // MARK: - Navigation
      

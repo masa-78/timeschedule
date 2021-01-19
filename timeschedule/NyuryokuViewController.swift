@@ -14,7 +14,9 @@ class NyuryokuViewController: UIViewController, UITextFieldDelegate , UITableVie
     
     @IBOutlet var table: UITableView!
     @IBOutlet var titleTextField: UITextField!
+    @IBOutlet var segmentedControl: UISegmentedControl!
     
+
     var saveData: UserDefaults = UserDefaults.standard
     
     var timeArray:Results<Time>!
@@ -92,7 +94,8 @@ class NyuryokuViewController: UIViewController, UITextFieldDelegate , UITableVie
         textField.resignFirstResponder()
         return true
     }
-
+ 
+    
     @IBAction func saveTable() {
         saveData.set(titleTextField.text ,forKey: "title")
     }
