@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="OP4-Ww-4Sn">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="pvK-3w-2Q9">
     <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -9,6 +9,22 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="5Qv-Tu-Z0y">
+            <objects>
+                <navigationController id="pvK-3w-2Q9" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="0z3-Co-KHt">
+                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="pjH-Fk-Ugz"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Cjm-Rs-PCn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="401" y="75"/>
+        </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -18,7 +34,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="rWy-oJ-Fl0">
-                                <rect key="frame" x="0.0" y="44" width="375" height="734"/>
+                                <rect key="frame" x="0.0" y="88" width="375" height="690"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <view key="tableFooterView" contentMode="scaleToFill" id="9jk-Ey-buX">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -46,20 +62,19 @@
                     <connections>
                         <outlet property="segmentedControl" destination="2id-iq-T2q" id="Hcb-mb-Zsf"/>
                         <outlet property="table" destination="rWy-oJ-Fl0" id="zQt-UD-h9Z"/>
-                        <segue destination="TLo-dg-Qsd" kind="push" identifier="toNextViewController" id="KlX-5P-mPZ"/>
-                        <segue destination="OP4-Ww-4Sn" kind="show" identifier="tothirdViewController" id="M1v-6l-imy"/>
+                        <segue destination="3Dh-DU-coz" kind="show" identifier="toNextViewController" id="s10-Sa-kGn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2151.1999999999998" y="76.108374384236456"/>
+            <point key="canvasLocation" x="1276" y="75"/>
         </scene>
         <!--Nyuryoku View Controller-->
         <scene sceneID="bU1-qx-0WD">
             <objects>
                 <viewController storyboardIdentifier="View2" useStoryboardIdentifierAsRestorationIdentifier="YES" id="TLo-dg-Qsd" customClass="NyuryokuViewController" customModule="timeschedule" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7BH-Vx-avt">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="758"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="yLS-db-c5f">
@@ -73,7 +88,7 @@
                                         <navigationItem id="McK-VI-97J">
                                             <nil key="title"/>
                                             <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="1" id="2id-iq-T2q">
-                                                <rect key="frame" x="121" y="12" width="133" height="32"/>
+                                                <rect key="frame" x="121" y="6" width="133" height="32"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <segments>
                                                     <segment title="1画面へ"/>
@@ -115,14 +130,14 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JQl-XX-O2U" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2900" y="76.847290640394093"/>
+            <point key="canvasLocation" x="2841" y="77"/>
         </scene>
         <!--Graph View Controller-->
         <scene sceneID="2Vz-Sa-F9k">
             <objects>
                 <viewController storyboardIdentifier="View3" id="OP4-Ww-4Sn" customClass="GraphViewController" customModule="timeschedule" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="bJH-BX-PzQ">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="758"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2Xb-mS-Yjc" customClass="ChartView" customModule="timeschedule" customModuleProvider="target">
@@ -195,24 +210,6 @@
             </objects>
             <point key="canvasLocation" x="3632.8000000000002" y="76.847290640394093"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="Ea9-4Z-DOP">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Y5T-Au-Fs6" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="aNr-36-7X9">
-                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="3Dh-DU-coz" kind="relationship" relationship="rootViewController" id="iYP-FP-n1V"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="YvY-Cx-kXi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="548" y="75"/>
-        </scene>
         <!--Page View Controller-->
         <scene sceneID="kUr-km-OxM">
             <objects>
@@ -223,7 +220,7 @@
                 </pageViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fL5-bK-KhX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1433" y="75"/>
+            <point key="canvasLocation" x="2007" y="75"/>
         </scene>
         <!--Parent View Controller-->
         <scene sceneID="kYZ-5U-yqf">

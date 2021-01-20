@@ -15,9 +15,9 @@ class ViewController: UIViewController, UITableViewDelegate , UITableViewDataSou
     
     @IBOutlet var segmentedControl: UISegmentedControl!
     
-    @IBAction func tapsegmentedControl(_ sender: UISegmentedControl) {
-        updateView()
-    }
+//    @IBAction func tapsegmentedControl(_ sender: UISegmentedControl) {
+//        updateView()
+//    }
     //    var NyuryokuVC:NyuryokuViewController = NyuryokuViewController
     //    var GraphVC:GraphViewController = GraphViewController
     
@@ -88,32 +88,32 @@ class ViewController: UIViewController, UITableViewDelegate , UITableViewDataSou
 //        self.present(next, animated: true)
 //    }
     
-    private lazy var ViewController: ViewController = {
-        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
-        
-        var viewController = storyboard.instantiateViewController(withIdentifier: "View1") as!
-            ViewController
-        add(asNyuryokuViewController: viewController)
-        return viewController
-    }()
+//    private lazy var ViewController: ViewController = {
+//        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+//
+//        var viewController = storyboard.instantiateViewController(withIdentifier: "View1") as!
+//            ViewController
+//        add(asNyuryokuViewController: viewController)
+//        return viewController
+//    }()
     
-    private lazy var NyuryokuViewController: NyuryokuViewController = {
-        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
-        
-        var viewController = storyboard.instantiateViewController(withIdentifier: "View2") as! NyuryokuViewController
-        add(asNyuryokuViewController: viewController)
-        return viewController
-    }()
+//    private lazy var NyuryokuViewController: NyuryokuViewController = {
+//        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+//
+//        var viewController = storyboard.instantiateViewController(withIdentifier: "View2") as! NyuryokuViewController
+//        add(asNyuryokuViewController: viewController)
+//        return viewController
+//    }()
     
     //    var GraphViewController:((UInt) -> UInt)!
     
-    private lazy var GraphViewController: GraphViewController = {
-        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
-        
-        var viewController = storyboard.instantiateViewController(withIdentifier: "View3") as! GraphViewController
-        add(asNyuryokuViewController: viewController)
-        return viewController
-    }()
+//    private lazy var GraphViewController: GraphViewController = {
+//        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+//
+//        var viewController = storyboard.instantiateViewController(withIdentifier: "View3") as! GraphViewController
+//        add(asNyuryokuViewController: viewController)
+//        return viewController
+//    }()
     
     func taptransition(_ sender: Any) {
         performSegue(withIdentifier: "toNextViewController", sender: nil)
@@ -141,8 +141,8 @@ class ViewController: UIViewController, UITableViewDelegate , UITableViewDataSou
         table.deselectRow(at: indexPath, animated: true)
         
         // 別の画面に遷移
-        performSegue(withIdentifier: "tothirdViewController", sender: nil)
-    }
+//        performSegue(withIdentifier: "tothirdViewController", sender: nil)
+//    }
     
     
     //
@@ -150,40 +150,41 @@ class ViewController: UIViewController, UITableViewDelegate , UITableViewDataSou
         return 300
     }
     
-    private func updateView() {
-        if segmentedControl.selectedSegmentIndex == 0 {
-            remove (asNyuryokuViewController: GraphViewController)
-            add(asNyuryokuViewController: NyuryokuViewController)
-        }else{
-            remove (asNyuryokuViewController: NyuryokuViewController)
-            add(asNyuryokuViewController: GraphViewController)
-        }
-    }
+//    private func updateView() {
+//        if segmentedControl.selectedSegmentIndex == 0 {
+//            remove (asNyuryokuViewController: GraphViewController)
+//            add(asNyuryokuViewController: NyuryokuViewController)
+//        }else{
+//            remove (asNyuryokuViewController: NyuryokuViewController)
+//            add(asNyuryokuViewController: GraphViewController)
+//        }
+//    }
+//
+//    private func setupView() {
+//        updateView()
+//    }
+//
+//    private func add(asNyuryokuViewController viewController: UIViewController) {
+//
+//        addChild(viewController)
+//
+//        view.addSubview(viewController.view)
+//
+//        viewController.view.frame = view.bounds
+//        viewController.view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+//
+//        viewController.didMove(toParent: self)
+//    }
+//
+//    private func remove(asNyuryokuViewController viewController: UIViewController) {
+//
+//        viewController.willMove(toParent: nil)
+//
+//        viewController.view.removeFromSuperview()
+//
+//        viewController.removeFromParent()
+//    }
     
-    private func setupView() {
-        updateView()
-    }
     
-    private func add(asNyuryokuViewController viewController: UIViewController) {
-        
-        addChild(viewController)
-        
-        view.addSubview(viewController.view)
-        
-        viewController.view.frame = view.bounds
-        viewController.view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        
-        viewController.didMove(toParent: self)
-    }
-    
-    private func remove(asNyuryokuViewController viewController: UIViewController) {
-        
-        viewController.willMove(toParent: nil)
-        
-        viewController.view.removeFromSuperview()
-        
-        viewController.removeFromParent()
-    }
-    
-    
+}
 }
