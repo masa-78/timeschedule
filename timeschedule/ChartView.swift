@@ -10,6 +10,8 @@ import UIKit
 
 class ChartView: UIView {
 
+//    private let TimeRate:UITextField = UITextField()
+//    private let LabelRate2:UILabel = UILabel()
     let caShapeLayerForBase:CAShapeLayer = CAShapeLayer.init()
     let caShapeLayerForValue:CAShapeLayer = CAShapeLayer.init()
     
@@ -26,6 +28,10 @@ class ChartView: UIView {
                 caBasicAnimation.toValue = 1.0
                 caShapeLayerForValue.add(caBasicAnimation, forKey: "chartAnimation")
     }
+    
+//    func setupGraph() {
+//        ChartView.CenterText = "TimeRate"
+//    }
 //    奥の円
     private func drawBaseChart(){
             let shapeFrame = CGRect.init(x: 0, y: 50, width: self.frame.width, height: self.frame.height)
@@ -52,7 +58,7 @@ class ChartView: UIView {
             caShapeLayerForValue.strokeColor = UIColor(displayP3Red: 1, green: 0.4, blue: 0.4, alpha: 1).cgColor
             caShapeLayerForValue.fillColor = UIColor.clear.cgColor
             caShapeLayerForValue.lineWidth = 70
-//            caShapeLayerForValue.lineCap = .round
+            caShapeLayerForValue.lineCap = .round
         
         let startAngle:CGFloat = CGFloat(-1 * Double.pi / 2.0)
 
@@ -62,11 +68,6 @@ class ChartView: UIView {
                 //UIBezierPathを使用して半円を定義
                 caShapeLayerForValue.path = UIBezierPath.init(arcCenter: CGPoint.init(x: shapeFrame.size.width / 2.0, y: shapeFrame.size.height / 2.0),radius: shapeFrame.size.width / 2.0,startAngle: startAngle,endAngle: endAngle,clockwise: true).cgPath
                 self.layer.addSublayer(caShapeLayerForValue)
-        
-        let _: [Double] = [0,1,1,1,1]
-        let _: [Double] = [1,2,3,4,5]
-
-        
     }
 }
 //    private func drawValueChart2(rate:Double){

@@ -16,6 +16,8 @@ class GraphViewController: UIViewController {
     @IBOutlet var chartView: ChartView! = ChartView()
     @ IBOutlet var timeRate:UITextField!
     @IBOutlet var labelRate2:UILabel!
+    @IBOutlet var labelRate3:UILabel!
+    @IBOutlet var labelRate4:UILabel!
 //    @IBOutlet var Createbutton: UIButton!
         
     override func viewDidLoad() {
