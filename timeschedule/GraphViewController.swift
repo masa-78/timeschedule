@@ -28,20 +28,13 @@ class GraphViewController: UIViewController {
 //        textRate.layer.borderWidth = 0.5
         textRate.keyboardType = .numberPad
         textRate.text = "0"
-//        textRate.font = UIFont.systemFont(ofSize: 16)
           self.view.addSubview(textRate)
-//        labelRate.text = "%"
          self.view.addSubview(labelRate)
-     
-//        buttonDraw.setTitle("グラフ表示", for: .normal)
         buttonDraw.setTitleColor(UIColor.blue, for: .normal)
         buttonDraw.addTarget(self, action: #selector(self.touchUpButtonDraw), for: .touchUpInside)
            self.view.addSubview(buttonDraw)
-        
          self.view.addSubview(chartView)
-        
-
-        
+    
         changeScreen()
 
         // Do any additional setup after loading the view.

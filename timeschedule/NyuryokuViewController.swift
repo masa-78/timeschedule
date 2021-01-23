@@ -13,10 +13,8 @@ import RealmSwift
 class NyuryokuViewController: UIViewController, UITextFieldDelegate , UITableViewDataSource,  UITableViewDelegate{
     
     @IBOutlet var table: UITableView!
-    @IBOutlet var titleTextField: UITextField!
-    @IBOutlet var segmentedControl: UISegmentedControl!
     
-
+ 
     var saveData: UserDefaults = UserDefaults.standard
     
     var timeArray:Results<Time>!
@@ -26,6 +24,7 @@ class NyuryokuViewController: UIViewController, UITextFieldDelegate , UITableVie
     var outputValue : String?
     
     var resultHandler: ((String) -> Void)?
+    
     
     let realm = try! Realm()
     
@@ -59,6 +58,7 @@ class NyuryokuViewController: UIViewController, UITextFieldDelegate , UITableVie
         self.view.endEditing(true)
     }
     
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return timeArray.count
         
@@ -80,25 +80,39 @@ class NyuryokuViewController: UIViewController, UITextFieldDelegate , UITableVie
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 300
     }
-    
-    
-    func tapBackButton(_ sender: Any) {
-        guard let text = self.titleTextField.text else { return }
-        if let handler = self.resultHandler {
-            handler(text)
-        }
-        self.dismiss(animated: true, completion: nil)
-    }
+
+//    func tapBackButton(_ sender: Any) {
+//        guard let text = self.titleTextField.text else { return }
+//        if let handler = self.resultHandler {
+//            handler(text)
+//    }
+//        self.dismiss(animated: true, completion: nil)
+//    }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
     }
  
-    
-    @IBAction func saveTable() {
-        saveData.set(titleTextField.text ,forKey: "title")
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+
+        // アイテム削除処理
+//        timeArray.remove(at: indexPath.row)
+        do {
+            let realm = try Realm()
+            try! realm.write {
+                realm.delete(timeArray[indexPath.row])
+        }
+        } catch {
+        }
+        
+        let indexPaths = [indexPath]
+        tableView.deleteRows(at: indexPaths, with: .automatic)
     }
+    
+//    @IBAction func saveTable() {
+//        saveData.set(titleTextField.text ,forKey: "title")
+//    }
     @IBAction func addButtonPressed(_ sender: Any) {
         
         var textField = UITextField()
@@ -110,7 +124,6 @@ class NyuryokuViewController: UIViewController, UITextFieldDelegate , UITableVie
             try! self.realm.write {
                 self.realm.add(time)
             }
-            //            self.tableView.reloadData()
         }
         alert.addTextField {
             (alertTextField) in
@@ -120,7 +133,11 @@ class NyuryokuViewController: UIViewController, UITextFieldDelegate , UITableVie
         alert.addAction(action)
         present(alert, animated: true, completion: nil)
     }
+    
 }
+    
+
+
 
 //    func tableview(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
 //        //tableView.deleteRows(at: [indexPath as IndexPath], with: UITableView.RowAnimation.automatic)
@@ -186,11 +203,7 @@ class NyuryokuViewController: UIViewController, UITextFieldDelegate , UITableVie
 /*
  // MARK: - Navigation
  
- // In a storyboard-based application, you will often want to do a little preparation before navigation
- override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
- // Get the new view controller using segue.destination.
- // Pass the selected object to the new view controller.
- }
+
  */
 
 

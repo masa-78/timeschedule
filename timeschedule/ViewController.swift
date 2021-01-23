@@ -133,8 +133,7 @@ class ViewController: UIViewController, UITableViewDelegate , UITableViewDataSou
     internal func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("/(indexPath.row)番目の行が選択されました。")
         print(indexPath.row)
-        
-        table.deselectRow(at: indexPath, animated: true)
+  
         performSegue(withIdentifier: "toNextViewController", sender: indexPath.row)
         
         // セルの選択を解除
