@@ -27,11 +27,11 @@ class TableViewCell: UITableViewCell {
         self.titleTextField.text = String((choice.row)+1)
     }
 
-    @IBAction func action (_ sender: Any) {
-        print("action")
-    }
+//    @IBAction func action (_ sender: Any) {
+//        print("action")
+//    }
 
-    @IBAction func saveTable() {
-        saveData.set(titleTextField.text ,forKey: "title")
-    }
+//    @IBAction func saveTable() {
+//        saveData.set(titleTextField.text ,forKey: "title")
+//    }
 }

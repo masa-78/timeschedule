@@ -12,14 +12,7 @@ import RealmSwift
 class ViewController: UIViewController, UITableViewDelegate , UITableViewDataSource{
     
     @IBOutlet var titleTextField: UITextField!
-    
-    @IBOutlet var segmentedControl: UISegmentedControl!
-    
-//    @IBAction func tapsegmentedControl(_ sender: UISegmentedControl) {
-//        updateView()
-//    }
-    //    var NyuryokuVC:NyuryokuViewController = NyuryokuViewController
-    //    var GraphVC:GraphViewController = GraphViewController
+
     
     let realm = try! Realm()
     //    var passedId: Int!
@@ -80,40 +73,6 @@ class ViewController: UIViewController, UITableViewDelegate , UITableViewDataSou
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
     }
-    
-//    @IBAction func taptransitionButton(_ sender: Any) {
-//        let storyboard = self.storyboard!
-//        let next = storyboard.instantiateViewController(withIdentifier: "toNextViewController") as! NyuryokuViewController
-//       next.outputValue = self.titleTextField.text
-//        self.present(next, animated: true)
-//    }
-    
-//    private lazy var ViewController: ViewController = {
-//        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
-//
-//        var viewController = storyboard.instantiateViewController(withIdentifier: "View1") as!
-//            ViewController
-//        add(asNyuryokuViewController: viewController)
-//        return viewController
-//    }()
-    
-//    private lazy var NyuryokuViewController: NyuryokuViewController = {
-//        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
-//
-//        var viewController = storyboard.instantiateViewController(withIdentifier: "View2") as! NyuryokuViewController
-//        add(asNyuryokuViewController: viewController)
-//        return viewController
-//    }()
-    
-    //    var GraphViewController:((UInt) -> UInt)!
-    
-//    private lazy var GraphViewController: GraphViewController = {
-//        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
-//
-//        var viewController = storyboard.instantiateViewController(withIdentifier: "View3") as! GraphViewController
-//        add(asNyuryokuViewController: viewController)
-//        return viewController
-//    }()
     
     func taptransition(_ sender: Any) {
         performSegue(withIdentifier: "toNextViewController", sender: nil)

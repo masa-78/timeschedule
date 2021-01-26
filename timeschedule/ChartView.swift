@@ -34,8 +34,8 @@ class ChartView: UIView {
 //    }
 //    奥の円
     private func drawBaseChart(){
-            let shapeFrame = CGRect.init(x: 0, y: 50, width: self.frame.width, height: self.frame.height)
-            caShapeLayerForBase.frame = shapeFrame
+            let shapeFrame = CGRect.init(x: -10, y: 25, width: self.frame.width, height: self.frame.height)
+             caShapeLayerForBase.frame = shapeFrame
         
             caShapeLayerForBase.strokeColor = UIColor(displayP3Red: 1, green: 0.8, blue: 0.4, alpha: 1.0).cgColor
             caShapeLayerForBase.fillColor = UIColor.clear.cgColor

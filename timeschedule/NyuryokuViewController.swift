@@ -79,6 +79,7 @@ class NyuryokuViewController: UIViewController, UITextFieldDelegate , UITableVie
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 300
+    
     }
 
 //    func tapBackButton(_ sender: Any) {
@@ -93,6 +94,8 @@ class NyuryokuViewController: UIViewController, UITextFieldDelegate , UITableVie
         textField.resignFirstResponder()
         return true
     }
+    
+
  
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
 
@@ -108,6 +111,9 @@ class NyuryokuViewController: UIViewController, UITextFieldDelegate , UITableVie
         
         let indexPaths = [indexPath]
         tableView.deleteRows(at: indexPaths, with: .automatic)
+        
+       
+ 
     }
     
 //    @IBAction func saveTable() {
