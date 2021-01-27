@@ -27,10 +27,7 @@ class CustomTableViewCell: UITableViewCell, UITextViewDelegate, UITextFieldDeleg
         titleTextField.delegate = self
         ContentTextView.delegate = self
     }
-    
-    
 
-    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         titleTextField.text = textField.text

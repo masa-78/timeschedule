@@ -39,7 +39,6 @@ class NyuryokuViewController: UIViewController, UITextFieldDelegate , UITableVie
         table.dataSource = self
         table.delegate = self
         print("Nyuryoku")
-        
 
 //       titleTextField.delegate = self
     }
@@ -47,6 +46,7 @@ class NyuryokuViewController: UIViewController, UITextFieldDelegate , UITableVie
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         print("NyuryokuViewController Will Appear")
+        self.table.reloadData()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -65,22 +65,23 @@ class NyuryokuViewController: UIViewController, UITextFieldDelegate , UITableVie
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "CustomTableViewCell",for: indexPath) as! CustomTableViewCell
-        
-        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CustomTableViewCell",for: indexPath)
+       
         let time = timeArray[indexPath.row]
         cell.textLabel?.text = time.title
         //cell.accessoryType = time.done ? .checkmark : .none
         print("aaa")
         print (time)
         return cell
-        
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 300
     
     }
+    
+    
+    
 
 //    func tapBackButton(_ sender: Any) {
 //        guard let text = self.titleTextField.text else { return }
@@ -97,7 +98,7 @@ class NyuryokuViewController: UIViewController, UITextFieldDelegate , UITableVie
     
 
  
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+    internal func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
 
         // アイテム削除処理
 //        timeArray.remove(at: indexPath.row)
@@ -108,14 +109,24 @@ class NyuryokuViewController: UIViewController, UITextFieldDelegate , UITableVie
         }
         } catch {
         }
-        
+
         let indexPaths = [indexPath]
         tableView.deleteRows(at: indexPaths, with: .automatic)
-        
-       
- 
+
+        if editingStyle == UITableViewCell.EditingStyle.delete {
+
+            tableView.deleteRows(at: [indexPath as IndexPath], with: UITableView.RowAnimation.automatic)
+        }
+        // TableViewを再読み込み.
+                    self.table.reloadData()
     }
+
     
+
+       
+
+ 
+        
 //    @IBAction func saveTable() {
 //        saveData.set(titleTextField.text ,forKey: "title")
 //    }
@@ -140,9 +151,9 @@ class NyuryokuViewController: UIViewController, UITextFieldDelegate , UITableVie
         present(alert, animated: true, completion: nil)
     }
     
-}
-    
 
+    
+}
 
 
 //    func tableview(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
@@ -156,16 +167,7 @@ class NyuryokuViewController: UIViewController, UITextFieldDelegate , UITableVie
 //    }
 //
 
-//    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-//
-//        timeArray.remove(at: indexPath.row)
-//        let indexPaths = [indexPath]
-//        tableView.deleteRows(at: indexPaths, with: .automatic)
-//
-//        if editingStyle == UITableViewCell.EditingStyle.delete {
-//
-//            tableView.deleteRows(at: [indexPath as IndexPath], with: UITableView.RowAnimation.automatic)
-//        }
+
 
 //    func viewDidRoad() {
 //

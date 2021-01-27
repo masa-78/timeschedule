@@ -26,17 +26,17 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource {
         return storyboard!.instantiateViewController(withIdentifier: "View1") as! ViewController
     }
     
-    func getSecond() -> NyuryokuViewController {
-        return storyboard!.instantiateViewController(withIdentifier: "View2") as! NyuryokuViewController
+    func getSecond() -> GraphViewController {
+        return storyboard!.instantiateViewController(withIdentifier: "View2") as! GraphViewController
     }
     
-    func getThird() -> GraphViewController {
-        return storyboard!.instantiateViewController(withIdentifier: "View3") as! GraphViewController
+    func getThird() -> NyuryokuViewController {
+        return storyboard!.instantiateViewController(withIdentifier: "View3") as! NyuryokuViewController
     }
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
 
-        if viewController.isKind(of: GraphViewController.self) {
+        if viewController.isKind(of: NyuryokuViewController.self) {
             return getSecond()
         }
         else
@@ -47,7 +47,7 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource {
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
 
-        if viewController.isKind(of: NyuryokuViewController.self)
+        if viewController.isKind(of: GraphViewController.self)
         {
             return getThird()
         }

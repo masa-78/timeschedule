@@ -19,7 +19,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="l8Y-mj-yQi">
-                        <rect key="frame" x="0.0" y="47" width="375" height="200"/>
+                        <rect key="frame" x="0.0" y="47" width="375" height="252"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <color key="textColor" systemColor="systemRedColor"/>
@@ -36,10 +36,6 @@
                 </subviews>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
-            <connections>
-                <outlet property="ContentTextView" destination="l8Y-mj-yQi" id="dQO-LM-jvI"/>
-                <outlet property="titleTextField" destination="Q8o-ni-Dva" id="JHF-UZ-4y4"/>
-            </connections>
             <point key="canvasLocation" x="-15.217391304347828" y="-59.933035714285708"/>
         </tableViewCell>
     </objects>
