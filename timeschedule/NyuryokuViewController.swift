@@ -13,8 +13,7 @@ import RealmSwift
 class NyuryokuViewController: UIViewController, UITextFieldDelegate , UITableViewDataSource,  UITableViewDelegate{
     
     @IBOutlet var table: UITableView!
-    
- 
+  
     var saveData: UserDefaults = UserDefaults.standard
     
     var timeArray:Results<Time>!
@@ -24,8 +23,7 @@ class NyuryokuViewController: UIViewController, UITextFieldDelegate , UITableVie
     var outputValue : String?
     
     var resultHandler: ((String) -> Void)?
-    
-    
+
     let realm = try! Realm()
     
     override func viewDidLoad() {
@@ -61,12 +59,11 @@ class NyuryokuViewController: UIViewController, UITextFieldDelegate , UITableVie
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return timeArray.count
-        
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CustomTableViewCell",for: indexPath)
-       
+
         let time = timeArray[indexPath.row]
         cell.textLabel?.text = time.title
         //cell.accessoryType = time.done ? .checkmark : .none
@@ -95,28 +92,29 @@ class NyuryokuViewController: UIViewController, UITextFieldDelegate , UITableVie
         textField.resignFirstResponder()
         return true
     }
-    
 
  
-    internal func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete{
         // アイテム削除処理
-//        timeArray.remove(at: indexPath.row)
-        do {
-            let realm = try Realm()
+            
             try! realm.write {
+//                timeArray.remove(at: indexPath.row)
+                let item = (timeArray[indexPath.row])
+                realm.delete(item)
+                
                 realm.delete(timeArray[indexPath.row])
         }
-        } catch {
+            
         }
+//
+//        let indexPaths = [indexPath]
+//        tableView.deleteRows(at: indexPaths, with: .automatic)
 
-        let indexPaths = [indexPath]
-        tableView.deleteRows(at: indexPaths, with: .automatic)
-
-        if editingStyle == UITableViewCell.EditingStyle.delete {
-
-            tableView.deleteRows(at: [indexPath as IndexPath], with: UITableView.RowAnimation.automatic)
-        }
+//        if editingStyle == UITableViewCell.EditingStyle.delete {
+//
+//            tableView.deleteRows(at: [indexPath as IndexPath], with: UITableView.RowAnimation.automatic)
+//        }
         // TableViewを再読み込み.
                     self.table.reloadData()
     }

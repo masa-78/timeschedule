@@ -13,6 +13,7 @@ class ViewController: UIViewController, UITableViewDelegate , UITableViewDataSou
     
     @IBOutlet var titleTextField: UITextField!
 
+    var timeArray:Results<Time>!
     
     let realm = try! Realm()
     //    var passedId: Int!
@@ -24,7 +25,8 @@ class ViewController: UIViewController, UITableViewDelegate , UITableViewDataSou
         
         super.viewDidLoad()
         
-        
+        timeArray = realm.objects(Time.self)
+        print(timeArray!)
         //        var _:NyuryokuViewController = NyuryokuViewController
         //        var _:GraphViewController = GraphViewController
         
@@ -84,6 +86,9 @@ class ViewController: UIViewController, UITableViewDelegate , UITableViewDataSou
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TableViewCell", for: indexPath) as! TableViewCell
+//
+//        let time = timeArray[indexPath.row]
+//        cell.textLabel?.text = time.title
         cell.セルに表示するデータの制御(choice : indexPath)
         
         return cell
