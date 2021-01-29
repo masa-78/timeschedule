@@ -18,14 +18,14 @@ class GraphViewController: UIViewController {
     @IBOutlet var labelRate2:UILabel!
     @IBOutlet var labelRate3:UILabel!
     @IBOutlet var labelRate4:UILabel!
-//    @IBOutlet var Createbutton: UIButton!
+
         
     override func viewDidLoad() {
         super.viewDidLoad()
         
         textRate.layer.cornerRadius = 10
         textRate.layer.borderColor = UIColor.lightGray.cgColor
-//        textRate.layer.borderWidth = 0.5
+
         textRate.keyboardType = .numberPad
         textRate.text = "0"
           self.view.addSubview(textRate)
@@ -75,12 +75,12 @@ class GraphViewController: UIViewController {
 //        labelRate.frame = CGRect(x: widthValue/2-70, y: 100, width: 40, height: 40)
 //        buttonDraw.frame = CGRect(x: widthValue/2-30, y: 100, width: 200, height: 40)
         
-        var drawWidth = widthValue * 0.8
+        var drawWidth = widthValue * 0.7
         if (widthValue > heightValue){
             drawWidth = heightValue * 0.8
         }
         
-        chartView.frame = CGRect(x: widthValue/2-drawWidth/2, y: 150, width: drawWidth, height: drawWidth)
+        chartView.frame = CGRect(x: widthValue/2-drawWidth/2, y: 60, width: drawWidth, height: drawWidth)
     }
     
     @objc func touchUpButtonDraw(){

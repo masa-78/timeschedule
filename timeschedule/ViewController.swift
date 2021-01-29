@@ -10,10 +10,10 @@ import UIKit
 import RealmSwift
 
 class ViewController: UIViewController, UITableViewDelegate , UITableViewDataSource{
-    
-    @IBOutlet var titleTextField: UITextField!
 
     var timeArray:Results<Time>!
+    
+    var addButtonPressed = UIBarButtonItem?.self
     
     let realm = try! Realm()
     //    var passedId: Int!
@@ -21,6 +21,28 @@ class ViewController: UIViewController, UITableViewDelegate , UITableViewDataSou
     //    @IBOutlet var titleTextField: UITextField!
     
     @IBOutlet var table: UITableView!
+    
+//    @IBAction func addButtonPressed(_ sender: Any) {
+//
+//        var textField = UITextField()
+//        let alert = UIAlertController(title: "新しいアイテム追加", message: "", preferredStyle: .alert)
+//        let action = UIAlertAction(title: "リストに追加", style: .default) {(action) in
+//
+//            let time = Time()
+//            time.title = textField.text!
+//            try! self.realm.write {
+//                self.realm.add(time)
+//            }
+//        }
+//        alert.addTextField {
+//            (alertTextField) in
+//            alertTextField.placeholder = "新しいアイテム"
+//            textField = alertTextField
+//        }
+//        alert.addAction(action)
+//        present(alert, animated: true, completion: nil)
+//    }
+    
     override func viewDidLoad() {
         
         super.viewDidLoad()
@@ -57,7 +79,7 @@ class ViewController: UIViewController, UITableViewDelegate , UITableViewDataSou
         if segue.identifier == "toNextViewController" {
             let next = segue.destination as? NyuryokuViewController
             next?.resultHandler = {text in
-                self.titleTextField.text = text
+//                self.titleTextField.text = text
             }
         }
     }
@@ -76,36 +98,68 @@ class ViewController: UIViewController, UITableViewDelegate , UITableViewDataSou
         self.view.endEditing(true)
     }
     
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+         return 15
+     }
+     
+     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+         let cell = tableView.dequeueReusableCell(withIdentifier: "TableViewCell", for: indexPath)as!
+          TableViewCell
+//         cell.textLabel?.text = time.title
+//         print("bbb")
+
+ //
+   //     let time = timeArray[indexPath.row]
+ //        cell.textLabel?.text = time.title
+        cell.セルに表示するデータの制御(choice:indexPath)
+         
+         return cell
+     }
+    
+//    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+//        if editingStyle == .delete{
+//        // アイテム削除処理
+//
+//            try! realm.write {
+////                timeArray.remove(at: indexPath.row)
+//                let item = (timeArray[indexPath.row])
+//                realm.delete(item)
+//
+//                realm.delete(timeArray[indexPath.row])
+//        }
+    
     func taptransition(_ sender: Any) {
         performSegue(withIdentifier: "toNextViewController", sender: nil)
     }
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 15
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "TableViewCell", for: indexPath) as! TableViewCell
+//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//        return timeArray.count
+//    }
+//
+//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+//        let cell = tableView.dequeueReusableCell(withIdentifier: "TableViewCell", for: indexPath)
+//        cell.textLabel?.text = time.title
+//        print("bbb")
+
 //
 //        let time = timeArray[indexPath.row]
 //        cell.textLabel?.text = time.title
-        cell.セルに表示するデータの制御(choice : indexPath)
+//        cell.セルに表示するデータの制御(choice : indexPath)
         
-        return cell
-    }
-    
-    internal func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        return cell
+//    }
+//
+     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("/(indexPath.row)番目の行が選択されました。")
         print(indexPath.row)
-  
+
         performSegue(withIdentifier: "toNextViewController", sender: indexPath.row)
-        
+
         // セルの選択を解除
         table.deselectRow(at: indexPath, animated: true)
         
-        // 別の画面に遷移
-//        performSegue(withIdentifier: "tothirdViewController", sender: nil)
-//    }
+
+      
     
     
     //
@@ -151,3 +205,4 @@ class ViewController: UIViewController, UITableViewDelegate , UITableViewDataSou
     
 }
 }
+   
