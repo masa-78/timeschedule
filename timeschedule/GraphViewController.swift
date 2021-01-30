@@ -23,6 +23,11 @@ class GraphViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        chartView.widthAnchor.constraint(equalTo: self.view.widthAnchor, multiplier: 0.1).isActive = true
+        chartView.heightAnchor.constraint(equalTo: self.view.heightAnchor, multiplier: 0.1).isActive = true
+        chartView.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 50.0).isActive = true
+        
+        
         textRate.layer.cornerRadius = 10
         textRate.layer.borderColor = UIColor.lightGray.cgColor
 
@@ -32,9 +37,23 @@ class GraphViewController: UIViewController {
          self.view.addSubview(labelRate)
         buttonDraw.setTitleColor(UIColor.blue, for: .normal)
         buttonDraw.addTarget(self, action: #selector(self.touchUpButtonDraw), for: .touchUpInside)
-           self.view.addSubview(buttonDraw)
+        self.view.addSubview(buttonDraw)
          self.view.addSubview(chartView)
+        self.view.addSubview(labelRate2)
+        self.view.addSubview(labelRate3)
+        self.view.addSubview(labelRate4)
+        self.view.addSubview(timeRate)
     
+        chartView.widthAnchor.constraint(equalTo: self.view.widthAnchor, multiplier: 0.5).isActive = true
+        chartView.heightAnchor.constraint(equalTo: self.view.heightAnchor, multiplier: 0.5).isActive = true
+        chartView.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 300.0).isActive = true
+        textRate.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: 50.0).isActive = true
+        labelRate.bottomAnchor.constraint(equalTo: textRate.bottomAnchor).isActive = true
+        buttonDraw.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: 20.0).isActive = true
+        labelRate2.bottomAnchor.constraint(equalTo: textRate.bottomAnchor).isActive = true
+        labelRate3.bottomAnchor.constraint(equalTo: textRate.bottomAnchor, constant: 5.0).isActive = true
+        labelRate4.bottomAnchor.constraint(equalTo: timeRate.bottomAnchor, constant: 5.0).isActive = true
+        
         changeScreen()
 
         // Do any additional setup after loading the view.
@@ -86,19 +105,13 @@ class GraphViewController: UIViewController {
     @objc func touchUpButtonDraw(){
         drawChart()
     }
-    
-//    @IBAction func createButton(_sender: Any) {
-//        let TestText: UITextField = UITextField()
-//        TestText.frame = CGRect.init(x:  , y: , width: 97, height: 34)
-//    }
-    
+
     /**
      グラフを表示
      */
     private func drawChart(){
         let rate = Double(textRate.text!)
         chartView.drawChart(rate: rate!)
-        
     }
 //    キーボードずらし
     func configureObserver() {

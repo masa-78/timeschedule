@@ -56,7 +56,6 @@ class NyuryokuViewController: UIViewController, UITextFieldDelegate , UITableVie
         self.view.endEditing(true)
     }
     
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return timeArray.count
     }
@@ -76,9 +75,6 @@ class NyuryokuViewController: UIViewController, UITextFieldDelegate , UITableVie
         return 300
     
     }
-    
-    
-    
 
 //    func tapBackButton(_ sender: Any) {
 //        guard let text = self.titleTextField.text else { return }
@@ -93,7 +89,6 @@ class NyuryokuViewController: UIViewController, UITextFieldDelegate , UITableVie
         return true
     }
 
- 
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete{
         // アイテム削除処理
@@ -102,10 +97,7 @@ class NyuryokuViewController: UIViewController, UITextFieldDelegate , UITableVie
 //                timeArray.remove(at: indexPath.row)
                 let item = (timeArray[indexPath.row])
                 realm.delete(item)
-                
-                realm.delete(timeArray[indexPath.row])
         }
-            
         }
 //
 //        let indexPaths = [indexPath]
