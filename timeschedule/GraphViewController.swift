@@ -46,13 +46,15 @@ class GraphViewController: UIViewController {
     
         chartView.widthAnchor.constraint(equalTo: self.view.widthAnchor, multiplier: 0.5).isActive = true
         chartView.heightAnchor.constraint(equalTo: self.view.heightAnchor, multiplier: 0.5).isActive = true
-        chartView.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 300.0).isActive = true
+        chartView.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 100.0).isActive = true
         textRate.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: 50.0).isActive = true
         labelRate.bottomAnchor.constraint(equalTo: textRate.bottomAnchor).isActive = true
         buttonDraw.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: 20.0).isActive = true
         labelRate2.bottomAnchor.constraint(equalTo: textRate.bottomAnchor).isActive = true
         labelRate3.bottomAnchor.constraint(equalTo: textRate.bottomAnchor, constant: 5.0).isActive = true
         labelRate4.bottomAnchor.constraint(equalTo: timeRate.bottomAnchor, constant: 5.0).isActive = true
+        timeRate.bottomAnchor.constraint(equalTo: textRate.bottomAnchor).isActive = true
+        
         
         changeScreen()
 
