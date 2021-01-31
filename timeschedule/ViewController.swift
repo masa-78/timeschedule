@@ -21,6 +21,17 @@ class ViewController: UIViewController, UITableViewDelegate , UITableViewDataSou
     //    @IBOutlet var titleTextField: UITextField!
     
     @IBOutlet var table: UITableView!
+    @IBOutlet var saveButton: UIButton!
+    
+    @IBAction func saveButton(_ sender: UIButton) {
+       let obj = Time()
+        
+        
+        try! realm.write {
+            realm.add(obj)
+        }
+        viewDidLoad()
+    }
     
 //    @IBAction func addButtonPressed(_ sender: Any) {
 //
@@ -51,9 +62,7 @@ class ViewController: UIViewController, UITableViewDelegate , UITableViewDataSou
         print(timeArray!)
         //        var _:NyuryokuViewController = NyuryokuViewController
         //        var _:GraphViewController = GraphViewController
-        
-        
-        
+   
         //        titleTextField.text = (PassedId)
         
         //        table.tableFooterView = UIView(frame: CGRect.zero)
@@ -65,7 +74,6 @@ class ViewController: UIViewController, UITableViewDelegate , UITableViewDataSou
         table.dataSource = self
         
         table.delegate = self
-
     }
 
 
@@ -97,6 +105,8 @@ class ViewController: UIViewController, UITableViewDelegate , UITableViewDataSou
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
     }
+
+    
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
          return 15
@@ -115,19 +125,7 @@ class ViewController: UIViewController, UITableViewDelegate , UITableViewDataSou
          
          return cell
      }
-    
-//    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-//        if editingStyle == .delete{
-//        // アイテム削除処理
-//
-//            try! realm.write {
-////                timeArray.remove(at: indexPath.row)
-//                let item = (timeArray[indexPath.row])
-//                realm.delete(item)
-//
-//                realm.delete(timeArray[indexPath.row])
-//        }
-    
+
     func taptransition(_ sender: Any) {
         performSegue(withIdentifier: "toNextViewController", sender: nil)
     }
@@ -157,11 +155,7 @@ class ViewController: UIViewController, UITableViewDelegate , UITableViewDataSou
 
         // セルの選択を解除
         table.deselectRow(at: indexPath, animated: true)
-        
 
-      
-    
-    
     //
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 300
@@ -206,3 +200,4 @@ class ViewController: UIViewController, UITableViewDelegate , UITableViewDataSou
 }
 }
    
+

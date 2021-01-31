@@ -58,13 +58,19 @@
                     </view>
                     <navigationItem key="navigationItem" id="PEc-zQ-WRT">
                         <nil key="title"/>
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="vBV-7k-Mfl">
-                            <connections>
-                                <action selector="addButtonPressed:" destination="BYZ-38-t0r" id="V06-EV-Kxc"/>
-                            </connections>
+                        <barButtonItem key="rightBarButtonItem" title="Save" style="plain" id="Zal-Cw-RU7">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="0HB-up-sic">
+                                <rect key="frame" x="276" y="7" width="83" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Save"/>
+                                <connections>
+                                    <action selector="saveButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gzo-li-ggF"/>
+                                </connections>
+                            </button>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="saveButton" destination="0HB-up-sic" id="Kck-bv-LvL"/>
                         <outlet property="table" destination="rWy-oJ-Fl0" id="zQt-UD-h9Z"/>
                         <segue destination="3Dh-DU-coz" kind="show" identifier="toNextViewController" id="s10-Sa-kGn"/>
                     </connections>
