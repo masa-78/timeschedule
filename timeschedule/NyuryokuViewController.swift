@@ -17,7 +17,7 @@ class NyuryokuViewController: UIViewController, UITextFieldDelegate , UITableVie
     var saveData: UserDefaults = UserDefaults.standard
     
     var timeArray:Results<Time>!
-    
+
     var addButtonPressed = UIBarButtonItem?.self
     
     var outputValue : String?
@@ -26,6 +26,7 @@ class NyuryokuViewController: UIViewController, UITextFieldDelegate , UITableVie
 
     let realm = try! Realm()
     
+
     override func viewDidLoad() {
         super.viewDidLoad()
         timeArray = realm.objects(Time.self)
@@ -35,6 +36,7 @@ class NyuryokuViewController: UIViewController, UITextFieldDelegate , UITableVie
         table.dataSource = self
         table.delegate = self
         print("Nyuryoku")
+
 
     }
     
@@ -58,8 +60,8 @@ class NyuryokuViewController: UIViewController, UITextFieldDelegate , UITableVie
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+       
         let cell = tableView.dequeueReusableCell(withIdentifier: "CustomTableViewCell",for: indexPath)
-
         let time = timeArray[indexPath.row]
         cell.textLabel?.text = time.title
         //cell.accessoryType = time.done ? .checkmark : .none
@@ -105,6 +107,8 @@ class NyuryokuViewController: UIViewController, UITextFieldDelegate , UITableVie
             try! self.realm.write {
                 self.realm.add(time)
             }
+//            self.timeArray.append(time)
+            self.table.reloadData()
         }
         alert.addTextField {
             (alertTextField) in

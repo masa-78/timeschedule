@@ -16,20 +16,21 @@ class ViewController: UIViewController, UITableViewDelegate , UITableViewDataSou
     var addButtonPressed = UIBarButtonItem?.self
     
     let realm = try! Realm()
-    //    var passedId: Int!
-    //
-    //    @IBOutlet var titleTextField: UITextField!
+
+    var saveData: UserDefaults = UserDefaults.standard
     
     @IBOutlet var table: UITableView!
     @IBOutlet var saveButton: UIButton!
     
     @IBAction func saveButton(_ sender: UIButton) {
-       let obj = Time()
+//       let obj = Time()
+//
+//
+//        try! realm.write {
+//            realm.add(obj)
+//        }
+//        saveData.set(table, forKey: "title")
         
-        
-        try! realm.write {
-            realm.add(obj)
-        }
         viewDidLoad()
     }
     
@@ -74,6 +75,8 @@ class ViewController: UIViewController, UITableViewDelegate , UITableViewDataSou
         table.dataSource = self
         
         table.delegate = self
+        
+//        table = saveData.object(forKey: "title") as? UITableView
     }
 
 
@@ -160,6 +163,7 @@ class ViewController: UIViewController, UITableViewDelegate , UITableViewDataSou
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 300
     }
+
     
 //    private func updateView() {
 //        if segmentedControl.selectedSegmentIndex == 0 {
