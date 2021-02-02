@@ -14,7 +14,7 @@ class GraphViewController: UIViewController {
     @IBOutlet var labelRate:UILabel! = UILabel()
     @IBOutlet var buttonDraw:UIButton! = UIButton()
     @IBOutlet var chartView: ChartView! = ChartView()
-    @ IBOutlet var timeRate:UITextField!
+    @IBOutlet var timeRate:UITextField!
     @IBOutlet var labelRate2:UILabel!
     @IBOutlet var labelRate3:UILabel!
     @IBOutlet var labelRate4:UILabel!
@@ -22,39 +22,52 @@ class GraphViewController: UIViewController {
         
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        chartView.widthAnchor.constraint(equalTo: self.view.widthAnchor, multiplier: 0.1).isActive = true
-        chartView.heightAnchor.constraint(equalTo: self.view.heightAnchor, multiplier: 0.1).isActive = true
-        chartView.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 50.0).isActive = true
+
         
         
         textRate.layer.cornerRadius = 10
+        timeRate.layer.cornerRadius = 10
         textRate.layer.borderColor = UIColor.lightGray.cgColor
-
+        timeRate.layer.borderColor = UIColor.lightGray.cgColor
+        
         textRate.keyboardType = .numberPad
         textRate.text = "0"
-          self.view.addSubview(textRate)
-         self.view.addSubview(labelRate)
+ 
         buttonDraw.setTitleColor(UIColor.blue, for: .normal)
         buttonDraw.addTarget(self, action: #selector(self.touchUpButtonDraw), for: .touchUpInside)
+
+        chartView.widthAnchor.constraint(equalTo: self.view.widthAnchor, multiplier: 0.5).isActive = true
+        chartView.heightAnchor.constraint(equalTo: self.view.heightAnchor, multiplier: 0.5).isActive = true
+        chartView.topAnchor.constraint(equalTo: self.view.topAnchor, constant: -50.0).isActive = true
+        
+        textRate.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 15.0).isActive = true
+        textRate.bottomAnchor.constraint(equalTo: buttonDraw.topAnchor, constant: 0.0).isActive = true
+        
+        timeRate.bottomAnchor.constraint(equalTo: textRate.bottomAnchor).isActive = true
+        timeRate.leadingAnchor.constraint(equalTo: labelRate.trailingAnchor,constant: 170.0).isActive = true
+        
+        buttonDraw.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: 150.0).isActive = true
+       
+        
+        labelRate.bottomAnchor.constraint(equalTo: textRate.bottomAnchor).isActive = true
+        labelRate.leadingAnchor.constraint(equalTo: textRate.trailingAnchor).isActive = true
+        
+        labelRate2.bottomAnchor.constraint(equalTo: textRate.bottomAnchor).isActive = true
+        labelRate2.leadingAnchor.constraint(equalTo: timeRate.trailingAnchor).isActive = true
+        
+        
+//        labelRate3.bottomAnchor.constraint(equalTo: textRate.bottomAnchor, constant: 5.0).isActive = true
+//        labelRate4.bottomAnchor.constraint(equalTo: timeRate.bottomAnchor, constant: 5.0).isActive = true
+
+        
+        self.view.addSubview(textRate)
+        self.view.addSubview(labelRate)
         self.view.addSubview(buttonDraw)
-         self.view.addSubview(chartView)
+        self.view.addSubview(chartView)
         self.view.addSubview(labelRate2)
         self.view.addSubview(labelRate3)
         self.view.addSubview(labelRate4)
         self.view.addSubview(timeRate)
-    
-        chartView.widthAnchor.constraint(equalTo: self.view.widthAnchor, multiplier: 0.5).isActive = true
-        chartView.heightAnchor.constraint(equalTo: self.view.heightAnchor, multiplier: 0.5).isActive = true
-        chartView.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 100.0).isActive = true
-        textRate.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: 50.0).isActive = true
-        labelRate.bottomAnchor.constraint(equalTo: textRate.bottomAnchor).isActive = true
-        buttonDraw.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: 20.0).isActive = true
-        labelRate2.bottomAnchor.constraint(equalTo: textRate.bottomAnchor).isActive = true
-        labelRate3.bottomAnchor.constraint(equalTo: textRate.bottomAnchor, constant: 5.0).isActive = true
-        labelRate4.bottomAnchor.constraint(equalTo: timeRate.bottomAnchor, constant: 5.0).isActive = true
-        timeRate.bottomAnchor.constraint(equalTo: textRate.bottomAnchor).isActive = true
-        
         
         changeScreen()
 
