@@ -17,33 +17,24 @@ class ViewController: UIViewController, UITableViewDelegate , UITableViewDataSou
     
     let realm = try! Realm()
     
-    var saveData: UserDefaults = UserDefaults.standard
+//    var saveData: UserDefaults = UserDefaults.standard
     
     @IBOutlet var table: UITableView!
     @IBOutlet var saveButton: UIButton!
     
-    @IBAction func saveButton(_ sender: UIButton) {
-        //       let obj = Time()
-        //        try! realm.write {
-        //            realm.add(obj)
-        //        }
-        //        saveData.set(table, forKey: "title")
+    @IBAction func saveButton(_ sender: Any) {
         
-        viewDidLoad()
+//                saveData.set(table, forKey: "title")
+
+        self.dismiss(animated: true,completion: nil)
     }
-    
     override func viewDidLoad() {
         
         super.viewDidLoad()
         
         timeArray = realm.objects(Time.self)
         print(timeArray!)
-        //        var _:NyuryokuViewController = NyuryokuViewController
-        //        var _:GraphViewController = GraphViewController
-        
-        //        titleTextField.text = (PassedId)
-        
-        //        table.tableFooterView = UIView(frame: CGRect.zero)
+
         
         table.register (UINib(nibName: "TableViewCell", bundle: nil),forCellReuseIdentifier: "TableViewCell")
         
@@ -52,8 +43,7 @@ class ViewController: UIViewController, UITableViewDelegate , UITableViewDataSou
         table.dataSource = self
         
         table.delegate = self
-        
-        //        table = saveData.object(forKey: "title") as? UITableView
+
     }
     
     override func didReceiveMemoryWarning() {
@@ -81,45 +71,24 @@ class ViewController: UIViewController, UITableViewDelegate , UITableViewDataSou
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
     }
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 15
+        return timeArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TableViewCell", for: indexPath)as!
             TableViewCell
-        //         cell.textLabel?.text = time.title
-        //         print("bbb")
-        
-        //     let time = timeArray[indexPath.row]
-        //        cell.textLabel?.text = time.title
+
         cell.セルに表示するデータの制御(choice:indexPath)
+
         
         return cell
     }
-    
+ 
     func taptransition(_ sender: Any) {
         performSegue(withIdentifier: "toNextViewController", sender: nil)
     }
-    
-    //    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    //        return timeArray.count
-    //    }
-    
-    //    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    //        let cell = tableView.dequeueReusableCell(withIdentifier: "TableViewCell", for: indexPath)
-    //        cell.textLabel?.text = time.title
-    //        print("bbb")
-    
-    //
-    //        let time = timeArray[indexPath.row]
-    //        cell.textLabel?.text = time.title
-    //        cell.セルに表示するデータの制御(choice : indexPath)
-    
-    //        return cell
-    //    }
-    //
+        
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("/(indexPath.row)番目の行が選択されました。")
         print(indexPath.row)
@@ -130,37 +99,52 @@ class ViewController: UIViewController, UITableViewDelegate , UITableViewDataSou
         table.deselectRow(at: indexPath, animated: true)
         
         //
-        func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-            return 300
-        }
-        
-        //
-        //    private func setupView() {
-        //        updateView()
-        //    }
-        //
-        //    private func add(asNyuryokuViewController viewController: UIViewController) {
-        //
-        //        addChild(viewController)
-        //
-        //        view.addSubview(viewController.view)
-        //
-        //        viewController.view.frame = view.bounds
-        //        viewController.view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        //
-        //        viewController.didMove(toParent: self)
-        //    }
-        //    private func remove(asNyuryokuViewController viewController: UIViewController) {
-        //
-        //        viewController.willMove(toParent: nil)
-        //
-        //        viewController.view.removeFromSuperview()
-        //
-        //        viewController.removeFromParent()
-        //    }
-        
-        
+//        func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+//            return 300
+//        }
+
     }
 }
 
+class TableViewCell: UITableViewCell,UITextFieldDelegate{
+    @IBOutlet var titleTextField: UITextField!
+    
+    var time: Time!
+    
+    let realm = try! Realm()
+    
+    var timeArray: Results<Time>!
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        titleTextField.delegate = self
+        timeArray = realm.objects(Time.self)
+        // Initialization code
+    }
+    
+    override func setSelected(_ selected: Bool, animated: Bool) {
+        super.setSelected(selected, animated: animated)
+        // Configure the view for the selected state
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        titleTextField.resignFirstResponder()
+    }
+    
+    func textFieldShouldReturn(_ titleTextField: UITextField) -> Bool {
+//        self.titleTextField.text = ""
+        titleTextField.resignFirstResponder()
 
+            try! realm.write {
+                time.title = titleTextField.text!
+                realm.add(time)
+            }
+
+        return true
+    }
+    func  セルに表示するデータの制御(choice:IndexPath){
+        time = timeArray[choice.row]
+        self.titleTextField.text = time.title
+    }
+
+}

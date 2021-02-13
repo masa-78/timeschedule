@@ -9,15 +9,13 @@
 import UIKit
 
 class PageViewController: UIPageViewController, UIPageViewControllerDataSource {
-    
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setViewControllers([getSecond()], direction: .forward, animated: true, completion: nil)
         self.dataSource = self
     }
-   
-    
+ 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
@@ -55,10 +53,7 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource {
             return nil
         }
     }
-    
-    
-    
-    
+
     //    func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
     //        if viewController is NyuryokuViewController{
     //            return getSecond()

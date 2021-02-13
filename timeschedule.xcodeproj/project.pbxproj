@@ -19,7 +19,6 @@
 		F13100CF25A2E568006C8AC1 /* ParentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13100CE25A2E568006C8AC1 /* ParentViewController.swift */; };
 		F14D74F1252898F300E1F218 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F14D74EF252898F300E1F218 /* CustomTableViewCell.swift */; };
 		F14D74F2252898F300E1F218 /* CustomTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F14D74F0252898F300E1F218 /* CustomTableViewCell.xib */; };
-		F153429B250C9DC100CE3833 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1534299250C9DC100CE3833 /* TableViewCell.swift */; };
 		F153429C250C9DC100CE3833 /* TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F153429A250C9DC100CE3833 /* TableViewCell.xib */; };
 		F153429E250CC4CA00CE3833 /* NyuryokuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F153429D250CC4CA00CE3833 /* NyuryokuViewController.swift */; };
 		F15342A0250CDDEE00CE3833 /* GraphViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F153429F250CDDEE00CE3833 /* GraphViewController.swift */; };
@@ -67,7 +66,6 @@
 		F13100CE25A2E568006C8AC1 /* ParentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParentViewController.swift; sourceTree = "<group>"; };
 		F14D74EF252898F300E1F218 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
 		F14D74F0252898F300E1F218 /* CustomTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomTableViewCell.xib; sourceTree = "<group>"; };
-		F1534299250C9DC100CE3833 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		F153429A250C9DC100CE3833 /* TableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableViewCell.xib; sourceTree = "<group>"; };
 		F153429D250CC4CA00CE3833 /* NyuryokuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NyuryokuViewController.swift; sourceTree = "<group>"; };
 		F153429F250CDDEE00CE3833 /* GraphViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphViewController.swift; sourceTree = "<group>"; };
@@ -151,7 +149,6 @@
 				F13100CE25A2E568006C8AC1 /* ParentViewController.swift */,
 				F1C4574425725980000FA051 /* time.swift */,
 				F10F9F5924FA375700CCB667 /* ViewController.swift */,
-				F1534299250C9DC100CE3833 /* TableViewCell.swift */,
 				F153429A250C9DC100CE3833 /* TableViewCell.xib */,
 				F153429F250CDDEE00CE3833 /* GraphViewController.swift */,
 				F1D4629825A8403800BFAF4F /* ChartView.swift */,
@@ -368,7 +365,6 @@
 				F10F9F5A24FA375700CCB667 /* ViewController.swift in Sources */,
 				F13100CF25A2E568006C8AC1 /* ParentViewController.swift in Sources */,
 				F14D74F1252898F300E1F218 /* CustomTableViewCell.swift in Sources */,
-				F153429B250C9DC100CE3833 /* TableViewCell.swift in Sources */,
 				F1C4574525725980000FA051 /* time.swift in Sources */,
 				F15342A0250CDDEE00CE3833 /* GraphViewController.swift in Sources */,
 				F10F9F5624FA375700CCB667 /* AppDelegate.swift in Sources */,
