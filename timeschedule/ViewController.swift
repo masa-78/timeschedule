@@ -21,13 +21,11 @@ class ViewController: UIViewController, UITableViewDelegate , UITableViewDataSou
     
     @IBOutlet var table: UITableView!
     @IBOutlet var saveButton: UIButton!
-    
     @IBAction func saveButton(_ sender: Any) {
-        
 //                saveData.set(table, forKey: "title")
-
         self.dismiss(animated: true,completion: nil)
     }
+    
     override func viewDidLoad() {
         
         super.viewDidLoad()
@@ -35,7 +33,6 @@ class ViewController: UIViewController, UITableViewDelegate , UITableViewDataSou
         timeArray = realm.objects(Time.self)
         print(timeArray!)
 
-        
         table.register (UINib(nibName: "TableViewCell", bundle: nil),forCellReuseIdentifier: "TableViewCell")
         
         // Do any additional setup after loading the view.
@@ -43,7 +40,6 @@ class ViewController: UIViewController, UITableViewDelegate , UITableViewDataSou
         table.dataSource = self
         
         table.delegate = self
-
     }
     
     override func didReceiveMemoryWarning() {
@@ -57,7 +53,6 @@ class ViewController: UIViewController, UITableViewDelegate , UITableViewDataSou
             }
         }
     }
-    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         print("ViewController Will Appear")
@@ -78,13 +73,41 @@ class ViewController: UIViewController, UITableViewDelegate , UITableViewDataSou
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TableViewCell", for: indexPath)as!
             TableViewCell
-
-        cell.セルに表示するデータの制御(choice:indexPath)
-
         
+        cell.セルに表示するデータの制御(choice:indexPath)
         return cell
     }
- 
+
+//  キーボードずらし
+    func configureObserver() {
+        let notification = NotificationCenter.default
+        notification.addObserver(self, selector: #selector(keyboardWillShow(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+        notification.addObserver(self, selector: #selector(keyboardWillHide(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+        print("Notificationを発行")
+    }
+    
+    // Notificationを削除
+    func removeObserver() {
+        let notification = NotificationCenter.default
+        notification.removeObserver(self)
+    }
+    
+    @objc func keyboardWillShow(notification: Notification?) {
+        let rect = (notification?.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue
+        let duration: TimeInterval? = notification?.userInfo?[UIResponder.keyboardAnimationDurationUserInfoKey] as? Double
+        UIView.animate(withDuration: duration!, animations: { () in
+            let transform = CGAffineTransform(translationX: 0, y: -(rect?.size.height)!)
+            self.view.transform = transform
+        })
+    }
+
+    @objc func keyboardWillHide(notification: Notification?) {
+        let duration: TimeInterval? = notification?.userInfo?[UIResponder.keyboardAnimationCurveUserInfoKey] as? Double
+        UIView.animate(withDuration: duration!, animations: {
+            self.view.transform = CGAffineTransform.identity
+        })
+    }
+    
     func taptransition(_ sender: Any) {
         performSegue(withIdentifier: "toNextViewController", sender: nil)
     }
@@ -98,11 +121,9 @@ class ViewController: UIViewController, UITableViewDelegate , UITableViewDataSou
         // セルの選択を解除
         table.deselectRow(at: indexPath, animated: true)
         
-        //
 //        func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
 //            return 300
 //        }
-
     }
 }
 
@@ -124,27 +145,27 @@ class TableViewCell: UITableViewCell,UITextFieldDelegate{
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
+        print("タップされました")
         // Configure the view for the selected state
     }
     
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        titleTextField.resignFirstResponder()
-    }
+//    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+//        titleTextField.resignFirstResponder()
+//    }
     
     func textFieldShouldReturn(_ titleTextField: UITextField) -> Bool {
 //        self.titleTextField.text = ""
         titleTextField.resignFirstResponder()
-
             try! realm.write {
-                time.title = titleTextField.text!
+                time.name = titleTextField.text!
                 realm.add(time)
             }
-
         return true
     }
+    
     func  セルに表示するデータの制御(choice:IndexPath){
         time = timeArray[choice.row]
-        self.titleTextField.text = time.title
+        self.titleTextField.text = time.name
     }
 
 }

@@ -32,33 +32,8 @@ class GraphViewController: UIViewController {
         
         buttonDraw.setTitleColor(UIColor.blue, for: .normal)
         buttonDraw.addTarget(self, action: #selector(self.touchUpButtonDraw), for: .touchUpInside)
-        
-        //        chartView.widthAnchor.constraint(equalTo: self.view.widthAnchor, multiplier: 0.5).isActive = true
-        //        chartView.heightAnchor.constraint(equalTo: self.view.heightAnchor, multiplier: 0.5).isActive = true
-        //        chartView.topAnchor.constraint(equalTo: self.view.topAnchor, constant: -50.0).isActive = true
-        //
-        //        textRate.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 30.0).isActive = true
-        //        textRate.bottomAnchor.constraint(equalTo: buttonDraw.topAnchor, constant: 0.0).isActive = true
-        //
-        //
-        //        timeRate.bottomAnchor.constraint(equalTo: textRate.bottomAnchor).isActive = true
-        //        timeRate.leadingAnchor.constraint(equalTo: labelRate.trailingAnchor,constant: 100.0).isActive = true
-        //
-        //        buttonDraw.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: 100.0).isActive = true
-        //
-        //
-        //        labelRate.bottomAnchor.constraint(equalTo: textRate.bottomAnchor).isActive = true
-        //        labelRate.leadingAnchor.constraint(equalTo: textRate.trailingAnchor).isActive = true
-        //
         labelRate2.bottomAnchor.constraint(equalTo: timeRate.bottomAnchor).isActive = true
-        //        labelRate2.leadingAnchor.constraint(equalTo: timeRate.trailingAnchor).isActive = true
-        //
-        //
-        //        labelRate3.bottomAnchor.constraint(equalTo: textRate.topAnchor, constant: 10.0).isActive = true
-        //        labelRate3.leadingAnchor.constraint(equalTo: textRate.leadingAnchor).isActive = true
-        //
-        //        labelRate4.bottomAnchor.constraint(equalTo: timeRate.topAnchor, constant: 10.0).isActive = true
-        //        labelRate4.leadingAnchor.constraint(equalTo: timeRate.leadingAnchor).isActive = true
+    
         
         
         self.view.addSubview(textRate)
