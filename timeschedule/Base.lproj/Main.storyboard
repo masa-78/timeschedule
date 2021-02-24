@@ -37,7 +37,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="titleTextField" destination="RcN-eq-sjM" id="EGh-Ty-9Hb"/>
+                                            <outlet property="Datefield" destination="RcN-eq-sjM" id="Lqr-mN-wOh"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -61,7 +61,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="table" destination="rWy-oJ-Fl0" id="zQt-UD-h9Z"/>
-                        <segue destination="3Dh-DU-coz" kind="show" identifier="toNextViewController" id="s10-Sa-kGn"/>
+                        <segue destination="3Dh-DU-coz" kind="show" identifier="toNextViewController" id="8Bg-CY-W5B"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

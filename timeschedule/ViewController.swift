@@ -20,7 +20,8 @@ class ViewController: UIViewController, UITableViewDelegate , UITableViewDataSou
 //    var saveData: UserDefaults = UserDefaults.standard
     
     @IBOutlet var table: UITableView!
-    @IBOutlet var saveButton: UIButton!
+  
+
     @IBAction func saveButton(_ sender: Any) {
 //                saveData.set(table, forKey: "title")
         self.dismiss(animated: true,completion: nil)
@@ -48,9 +49,9 @@ class ViewController: UIViewController, UITableViewDelegate , UITableViewDataSou
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toNextViewController" {
-            let next = segue.destination as? NyuryokuViewController
-            next?.resultHandler = {text in
-            }
+            _ = segue.destination as! GraphViewController
+//            vc.resultHandler = {text in
+//            }
         }
     }
     override func viewWillAppear(_ animated: Bool) {
@@ -77,7 +78,6 @@ class ViewController: UIViewController, UITableViewDelegate , UITableViewDataSou
         cell.セルに表示するデータの制御(choice:indexPath)
         return cell
     }
-
 //  キーボードずらし
     func configureObserver() {
         let notification = NotificationCenter.default
@@ -120,52 +120,7 @@ class ViewController: UIViewController, UITableViewDelegate , UITableViewDataSou
         
         // セルの選択を解除
         table.deselectRow(at: indexPath, animated: true)
-        
-//        func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-//            return 300
-//        }
+
     }
 }
 
-class TableViewCell: UITableViewCell,UITextFieldDelegate{
-    @IBOutlet var titleTextField: UITextField!
-    
-    var time: Time!
-    
-    let realm = try! Realm()
-    
-    var timeArray: Results<Time>!
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        titleTextField.delegate = self
-        timeArray = realm.objects(Time.self)
-        // Initialization code
-    }
-    
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-        print("タップされました")
-        // Configure the view for the selected state
-    }
-    
-//    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-//        titleTextField.resignFirstResponder()
-//    }
-    
-    func textFieldShouldReturn(_ titleTextField: UITextField) -> Bool {
-//        self.titleTextField.text = ""
-        titleTextField.resignFirstResponder()
-            try! realm.write {
-                time.name = titleTextField.text!
-                realm.add(time)
-            }
-        return true
-    }
-    
-    func  セルに表示するデータの制御(choice:IndexPath){
-        time = timeArray[choice.row]
-        self.titleTextField.text = time.name
-    }
-
-}

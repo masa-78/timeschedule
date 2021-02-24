@@ -12,7 +12,7 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.setViewControllers([getSecond()], direction: .forward, animated: true, completion: nil)
+        self.setViewControllers([getFirst()], direction: .forward, animated: true, completion: nil)
         self.dataSource = self
     }
  
@@ -37,19 +37,24 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource {
         if viewController.isKind(of: NyuryokuViewController.self) {
             return getSecond()
         }
-        else
-        {
+//        else if viewController.isKind(of: GraphViewController.self) {
+//            // 2 -> 1
+//            return getFirst()
+//        }
+        else{
             return nil
         }
     }
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
-
+//        if viewController.isKind(of: ViewController.self) {
+//                    // 1 -> 2
+//                    return getSecond()
+//                } else
         if viewController.isKind(of: GraphViewController.self)
         {
             return getThird()
-        }
-        else{
+        }else{
             return nil
         }
     }

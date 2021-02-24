@@ -15,9 +15,6 @@ class Time: Object {
     @objc dynamic var title = ""
 }
 
-//class Task: Object {
-//    @objc dynamic var content: String = ""
-//    let list = List<Task>()
-//}
+
 
 
