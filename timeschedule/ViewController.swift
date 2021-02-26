@@ -17,16 +17,20 @@ class ViewController: UIViewController, UITableViewDelegate , UITableViewDataSou
     
     let realm = try! Realm()
     
-//    var saveData: UserDefaults = UserDefaults.standard
+    //    var saveData: UserDefaults = UserDefaults.standard
     
     @IBOutlet var table: UITableView!
-  
-//    @IBOutlet var DateField: UITextField!
+    
+    @IBOutlet var titleTextField: UITextField!
 
-    @IBAction func saveButton(_ sender: Any) {
-//                saveData.set(table, forKey: "title")
-        self.dismiss(animated: true,completion: nil)
-    }
+    let cellIdentifier = "TableViewCell"
+    
+    let data: [String] = ["日付"]
+//    @IBAction func moveAnotherStoryboard(_ sender: Any) {
+//        let storyboard: UIStoryboard = UIStoryboard(name: "View1", bundle: nil)//遷移先のStoryboardを設定
+//        let nextView = storyboard.instantiateViewController(withIdentifier: "View2") as! GraphViewController//遷移先のViewControllerを設定
+//        self.navigationController?.pushViewController(nextView, animated: true)//遷移する
+//    }
     
     override func viewDidLoad() {
         
@@ -34,13 +38,13 @@ class ViewController: UIViewController, UITableViewDelegate , UITableViewDataSou
         
         timeArray = realm.objects(Time.self)
         print(timeArray!)
-
-        table.register (UINib(nibName: "TableViewCell", bundle: nil),forCellReuseIdentifier: "TableViewCell")
+        
+        table.register(UITableViewCell.self, forCellReuseIdentifier: cellIdentifier)
+        
+//        table.register (UINib(nibName: "TableViewCell", bundle: nil),forCellReuseIdentifier: "TableViewCell")
         
         // Do any additional setup after loading the view.
-        
         table.dataSource = self
-        
         table.delegate = self
     }
     
@@ -50,10 +54,12 @@ class ViewController: UIViewController, UITableViewDelegate , UITableViewDataSou
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toNextViewController" {
-            _ = segue.destination as! GraphViewController
-//            next.resultHandler = {text in
-//            }
-        }
+            if (table.indexPathForSelectedRow?.row) != nil{
+                _ = segue.destination as! GraphViewController
+            //            next.resultHandler = {text in
+            //            }
+            }
+            }
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -68,18 +74,39 @@ class ViewController: UIViewController, UITableViewDelegate , UITableViewDataSou
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
     }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return timeArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "TableViewCell", for: indexPath)as!
-            TableViewCell
-        
-        cell.セルに表示するデータの制御(choice:indexPath)
+        let cell = table.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath)
+//            as!TableViewCell
+        _ = data[indexPath.row]
+//        cell.titleTextField.text = text
+//        cell.セルに表示するデータの制御(choice:indexPath)
         return cell
     }
-//  キーボードずらし
+    
+    func taptransition(_ sender: Any) {
+        performSegue(withIdentifier: "toNextViewController", sender: nil)
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        print("/(indexPath.row)番目の行が選択されました。")
+        print(indexPath.row)
+        
+        // セルの選択を解除
+        table.deselectRow(at: indexPath, animated: true)
+//        indexpath.row
+        performSegue(withIdentifier: "toNextViewController", sender: nil)
+        
+//        let storyboard: UIStoryboard = UIStoryboard(name: "View1", bundle: nil)//遷移先のStoryboardを設定
+//        let nextView = storyboard.instantiateViewController(withIdentifier: "View2") as! GraphViewController//遷移先のViewControllerを設定
+//        self.navigationController?.pushViewController(nextView, animated: true)//遷移する
+    }
+    //  キーボードずらし
     func configureObserver() {
         let notification = NotificationCenter.default
         notification.addObserver(self, selector: #selector(keyboardWillShow(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
@@ -101,44 +128,29 @@ class ViewController: UIViewController, UITableViewDelegate , UITableViewDataSou
             self.view.transform = transform
         })
     }
-
+    
     @objc func keyboardWillHide(notification: Notification?) {
         let duration: TimeInterval? = notification?.userInfo?[UIResponder.keyboardAnimationCurveUserInfoKey] as? Double
         UIView.animate(withDuration: duration!, animations: {
             self.view.transform = CGAffineTransform.identity
         })
     }
-    
-    func taptransition(_ sender: Any) {
-        performSegue(withIdentifier: "toNextViewController", sender: nil)
-    }
-        
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("/(indexPath.row)番目の行が選択されました。")
-        print(indexPath.row)
-        
-        performSegue(withIdentifier: "toNextViewController", sender: indexPath.row)
-        
-        // セルの選択を解除
-        table.deselectRow(at: indexPath, animated: true)
-
-    }
 }
 
 class TableViewCell: UITableViewCell,UITextFieldDelegate{
     @IBOutlet var titleTextField: UITextField!
-//        @IBOutlet var Datefield: UITextField!
-        var time: Time!
-
-        let realm = try! Realm()
-
-        var timeArray: Results<Time>!
+    
+    var time: Time!
+    
+    let realm = try! Realm()
+    
+    var timeArray: Results<Time>!
     
     override func awakeFromNib() {
         super.awakeFromNib()
-            titleTextField.delegate = self
-            timeArray = realm.objects(Time.self)
-//         Initialization code
+        titleTextField.delegate = self
+        timeArray = realm.objects(Time.self)
+        //         Initialization code
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -146,23 +158,23 @@ class TableViewCell: UITableViewCell,UITextFieldDelegate{
         print("タップされました")
         // Configure the view for the selected state
     }
-
-        override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-            titleTextField.resignFirstResponder()
-        }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        titleTextField.resignFirstResponder()
+    }
     
     func textFieldShouldReturn(_ titleTextField: UITextField) -> Bool {
-//        self.titleTextField.text = ""
+        //        self.titleTextField.text = ""
         titleTextField.resignFirstResponder()
-                try! realm.write {
-                    time.title = titleTextField.text!
-                    realm.add(time)
-                }
+        try! realm.write {
+            time.title = titleTextField.text!
+            realm.add(time)
+        }
         return true
     }
     
     func  セルに表示するデータの制御(choice:IndexPath){
-            time = timeArray[choice.row]
+        time = timeArray[choice.row]
         self.titleTextField.text = time.title
     }
 }
